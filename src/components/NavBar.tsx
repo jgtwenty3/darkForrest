@@ -15,7 +15,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md relative z-50">
+    <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
+
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className=" text-3xl md:text-5xl font-semibold text-gray-800 dark:text-white font-display">
@@ -38,13 +39,13 @@ export default function Navbar() {
           <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">About</Link>
           <Link href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">Contact</Link>
           
-          {/* Dark Mode Toggle */}
-          {/* <button
+            
+           <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
           >
             {mounted && (theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />)}
-          </button> */}
+          </button>
         </div>
 
         {/* Mobile Menu Button */}

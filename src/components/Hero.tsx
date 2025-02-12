@@ -18,12 +18,12 @@ export default function Hero() {
       </picture>
 
       {/* Content (Moved Higher) */}
-      <div className="relative z-10 flex flex-col items-center text-center text-white max-w-2xl mt-[-320px] ">
-        <span className="uppercase text-xl tracking-wide text-black">Small Business Web Design</span>
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-black">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mt-[-320px] ">
+        <span className="uppercase text-xl tracking-wide ">Small Business Web Design</span>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
           Hand-Coded Websites, Superior Results
         </h1>
-        <p className="text-lg md:text-xl mb-6 text-black">
+        <p className="text-lg md:text-xl mb-6 ">
           No page builders or WordPress. We offer 100% custom-coded websites starting at $125/month, as well as SEO services.
         </p>
         

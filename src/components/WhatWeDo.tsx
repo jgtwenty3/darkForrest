@@ -9,7 +9,7 @@ export default function WhatWeDo({}: Props) {
       <div className="font-display text-6xl md:text-8xl text-center mb-8 underline">
         WHAT WE DO
       </div>
-      <h2 className='text-xl mb-5'> NEVER WORRY ABOUT YOUR WEBSITE AGAIN</h2>
+      <h2 className='text-xl md:text-5xl mb-5'> NEVER WORRY ABOUT YOUR WEBSITE AGAIN</h2>
       <p className='md:w-3/5 mb-20 text-lg md:text-xl'>
       At Dark Forest Studios, we specialize in custom web design and development for small businesses across the US and Canada. Every line of code is meticulously crafted to ensure optimal performance and search engine visibility, helping your business attract more customers and increase revenue. We also offer ongoing management and support, so you're never left without assistance. Our mission is to build lasting relationships with our clients and support their growth every step of the way.
       </p>
@@ -64,9 +64,10 @@ export default function WhatWeDo({}: Props) {
       </div>
 
       <div className="mt-8">
-        <button className="px-8 py-3 text-2xl bg-black hover:bg-white text-white hover:text-black rounded-lg border-2 border-black font-display">
+      <button className="px-8 py-3 text-2xl bg-black hover:bg-white text-white hover:text-black rounded-lg border-2 border-black font-display w-full sm:w-auto">
           GET STARTED
-        </button>
+      </button>
+
       </div>
     </section>
   );

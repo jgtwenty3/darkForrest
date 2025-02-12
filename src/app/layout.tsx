@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Zen_Dots, Inter, Anton } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar";
+import { ThemeProvider } from 'next-themes'; // Import ThemeProvider
 
 const zenDots = Zen_Dots({
   variable: "--font-zen-dots",
@@ -10,11 +11,10 @@ const zenDots = Zen_Dots({
 });
 
 const anton = Anton({
-  variable :"--font-anton",
+  variable: "--font-anton",
   subsets: ["latin"],
-  weight:"400"
-
-})
+  weight: "400"
+});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,10 +32,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${anton.variable} ${inter.variable} antialiased`}>
-        <Navbar />
-        {children}
-      </body>
+      <ThemeProvider attribute="class"> {/* Wrap everything in ThemeProvider */}
+        <body className={`${anton.variable} ${inter.variable} antialiased`}>
+          <Navbar />
+          {children}
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
