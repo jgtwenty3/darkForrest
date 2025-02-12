@@ -15,7 +15,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md">
+    <nav className="bg-white dark:bg-gray-900 shadow-md relative z-50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className=" text-3xl md:text-5xl font-semibold text-gray-800 dark:text-white font-display">
@@ -23,11 +23,11 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-6 items-center">
+        <div className="hidden md:flex space-x-6 items-center uppercase">
           <Link href="/" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">Home</Link>
           <div className="relative group">
             <button className="text-gray-600 dark:text-gray-300 hover:text-blue-500 flex items-center">
-              Services
+              SERVICES
               <span className="ml-1">▼</span>
             </button>
             <div className="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-md hidden group-hover:block">
@@ -57,8 +57,8 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 shadow-md py-4 px-6">
           <Link href="/" className="block py-2 text-gray-600 dark:text-gray-300">Home</Link>
-          <div className="py-2">
-            <button className="w-full text-left text-gray-600 dark:text-gray-300">Services ▼</button>
+          <div className="py-2 ">
+            <button className="w-full text-left text-gray-600 dark:text-gray-300 ">SERVICES ▼</button>
             <div className="ml-4">
               <Link href="/web-design" className="block py-2 text-gray-600 dark:text-gray-300">Web Design</Link>
               <Link href="/seo" className="block py-2 text-gray-600 dark:text-gray-300">SEO</Link>

@@ -3,7 +3,8 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+    <section id="hero" className="relative flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 overflow-visible">
+
       {/* Background Image */}
       <picture className="absolute inset-0 z-0">
         <source media="(max-width: 600px)" srcSet="/images/forrest.svg" />
@@ -17,7 +18,7 @@ export default function Hero() {
       </picture>
 
       {/* Content (Moved Higher) */}
-      <div className="relative z-10 flex flex-col items-center text-center text-white max-w-2xl mt-[-320px]">
+      <div className="relative z-10 flex flex-col items-center text-center text-white max-w-2xl mt-[-320px] ">
         <span className="uppercase text-xl tracking-wide text-black">Small Business Web Design</span>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-black">
           Hand-Coded Websites, Superior Results
