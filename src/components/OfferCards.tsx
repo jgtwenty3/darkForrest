@@ -1,0 +1,28 @@
+import React from "react";
+
+interface CardProps {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const OfferCard: React.FC<CardProps> = ({ icon, title, description }) => {
+  return (
+    <div className="relative flex flex-col items-center text-center bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl w-full max-w-sm h-[300px]">
+      {/* Icon positioned in the upper-left corner */}
+      <div className="absolute top-[-20px] left-[-20px] bg-gray-100 dark:bg-gray-700 p-4 rounded-full shadow-lg">
+        <img src={icon} alt={title} className="w-12 h-12" />
+      </div>
+
+      {/* Title */}
+      <h3 className="text-3xl font-semibold text-gray-900 dark:text-white mt-10">
+        {title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-gray-600 dark:text-gray-300 mt-6 text-md flex-grow">{description}</p>
+    </div>
+  );
+};
+
+export default OfferCard;
