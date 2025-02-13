@@ -63,8 +63,8 @@ export default function WhatWeDo({}: Props) {
         </ul>
       </div>
 
-      <div className="mt-8">
-      <button className="px-8 py-3 text-2xl bg-black hover:bg-white text-white hover:text-black rounded-lg border-2 border-black font-display w-full sm:w-auto">
+      <div className="mt-10">
+      <button className="px-8 py-3 text-2xl bg-black hover:bg-background text-background hover:text-black hover:text-foreground border-2 border-background hover:border-black font-display w-full sm:w-auto">
           GET STARTED
       </button>
 

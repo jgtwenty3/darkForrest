@@ -1,10 +1,9 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 
 export default function Hero() {
   return (
     <section id="hero" className="relative flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 overflow-visible">
-
       {/* Background Image */}
       <picture className="absolute inset-0 z-0">
         <source media="(max-width: 600px)" srcSet="/images/forrest.svg" />
@@ -17,13 +16,16 @@ export default function Hero() {
         />
       </picture>
 
+      {/* Three.js UFO Scene */}
+      {/* <UFOScene /> */}
+
       {/* Content (Moved Higher) */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mt-[-320px] ">
-        <span className="uppercase text-xl tracking-wide ">Small Business Web Design</span>
+      <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mt-[-320px]">
+        <span className="uppercase text-xl tracking-wide">Small Business Web Design</span>
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
           Hand-Coded Websites, Superior Results
         </h1>
-        <p className="text-lg md:text-xl mb-6 ">
+        <p className="text-lg md:text-xl mb-6">
           No page builders or WordPress. We offer 100% custom-coded websites starting at $125/month, as well as SEO services.
         </p>
         
@@ -39,5 +41,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

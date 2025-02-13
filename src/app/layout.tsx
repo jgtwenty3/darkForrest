@@ -1,14 +1,8 @@
-import type { Metadata } from "next";
-import { Zen_Dots, Inter, Anton } from "next/font/google";
+import { Metadata } from "next";
+import { Inter, Anton } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar";
-import { ThemeProvider } from 'next-themes'; // Import ThemeProvider
-
-const zenDots = Zen_Dots({
-  variable: "--font-zen-dots",
-  subsets: ["latin"],
-  weight: "400", // Zen Dots only has one weight
-});
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -31,13 +25,16 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <ThemeProvider attribute="class"> {/* Wrap everything in ThemeProvider */}
-        <body className={`${anton.variable} ${inter.variable} antialiased`}>
+    <html lang="en" className={`${anton.variable} ${inter.variable}`}>
+      <head>
+        {/* Add any necessary head tags here */}
+      </head>
+      <body className="antialiased">
+        <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
-        </body>
-      </ThemeProvider>
+        </NextThemesProvider>
+      </body>
     </html>
   );
 }

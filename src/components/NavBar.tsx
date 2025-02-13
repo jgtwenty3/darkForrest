@@ -14,15 +14,16 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
-  return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
+  if (!mounted) return null;  // Prevent rendering until the component has mounted
 
+  return (
+    <nav className="bg-background shadow-md sticky top-0 z-50 border-2 border-black">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className=" text-3xl md:text-5xl font-semibold text-gray-800 dark:text-white font-display">
+        <Link href="/" className=" text-3xl md:text-5xl font-semibold font-display">
           DARK FOREST STUDIOS
         </Link>
-        
+
         {/* Desktop Nav */}
         <div className="hidden md:flex space-x-6 items-center uppercase">
           <Link href="/" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">Home</Link>
@@ -38,13 +39,13 @@ export default function Navbar() {
           </div>
           <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">About</Link>
           <Link href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">Contact</Link>
-          
-            
-           <button
+
+          {/* Theme toggle button */}
+          <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
           >
-            {mounted && (theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />)}
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </div>
 
