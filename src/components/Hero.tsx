@@ -10,9 +10,12 @@ export default function Hero() {
   const textRef = useRef<HTMLHeadingElement>(null);
   const buttonRefs = useRef<HTMLAnchorElement[]>([]);
 
+  const tl = gsap.timeline()
+
+  //header animation
   useGSAP(() => {
     if (textRef.current) {
-      gsap.fromTo(textRef.current, {
+      tl.fromTo(textRef.current, {
         opacity: 0,
         scale: 0.5,
         y: -50,
@@ -21,17 +24,18 @@ export default function Hero() {
         scale: 1,
         y: 0,
         duration: 1.5,
-        ease: "bounce.out",
+        ease: "power.out",
       });
     }
 
+    //buttons animation
     buttonRefs.current.forEach((button, index) => {
       if (button) {
-        gsap.from(button, {
+        tl.from(button, {
           opacity: 0,
           x: 50 * (index % 2 === 0 ? -1 : 1),
           duration: 1,
-          delay: index * 0.3,
+          delay: index * 0.1,
           ease: "power2.out",
         });
       }
@@ -52,16 +56,16 @@ export default function Hero() {
         />
       </picture>
 
-      {/* Three.js UFO Scene */}
+    
       {/* <UFOScene /> */}
 
       {/* Content (Moved Higher) */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mt-[-320px]">
-        <span className="uppercase text-xl tracking-wide">Small Business Web Design</span>
+        <span className="uppercase text-4xl tracking-wide">Small Business Web Design</span>
         <h1 ref={textRef} className="text-4xl md:text-6xl font-bold mb-6">
           Hand-Coded Websites, Superior Results
         </h1>
-        <p className="text-lg md:text-xl mb-6">
+        <p className="text-2xl md:text-3xl mb-6">
           No page builders or WordPress. We offer 100% custom-coded websites starting at $125/month, as well as SEO services.
         </p>
         
