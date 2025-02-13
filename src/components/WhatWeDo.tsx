@@ -1,67 +1,76 @@
-"use client";
-import React, { useRef, useEffect } from "react";
-import OfferCard from "./OfferCards";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+'use client';
 
-gsap.registerPlugin(useGSAP);
+import React, { useRef, useEffect } from 'react';
+import OfferCard from './OfferCards';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function WhatWeDo() {
   const textRef1 = useRef<HTMLSpanElement>(null);
   const textRef2 = useRef<HTMLDivElement>(null);
   const textRef3 = useRef<HTMLSpanElement>(null);
+  const additionalTextRef1 = useRef<HTMLDivElement>(null);
+  const additionalTextRef2 = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    const tl = gsap.timeline();
+  useEffect(() => {
+    const firstTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: textRef1.current,
+        start: 'top 80%', // Adjust as needed
+        end: 'bottom 20%', // Adjust as needed
+        toggleActions: 'play none none reverse',
+      },
+    });
 
-    // Animation for textRef1: drop in from the top
-    if (textRef1.current) {
-      tl.fromTo(
+    firstTimeline
+      .fromTo(
         textRef1.current,
         { opacity: 0, y: -100 },
-        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }
-      );
-    }
-
-    // Animation for textRef2: split letters and animate from both sides
-    if (textRef2.current) {
-      const chars = textRef2.current.querySelectorAll(".char");
-      tl.fromTo(
-        chars,
+        { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }
+      )
+      .fromTo(
+        textRef2.current!.querySelectorAll('.char'),
         { opacity: 0, x: (index) => (index % 2 === 0 ? -50 : 50) },
-        { opacity: 1, x: 0, duration: 1.5, ease: "power2.out", stagger: 0.05 }
-      );
-    }
-
-    // Animation for textRef3: come in from the bottom, rotate, and flicker for 3.5 seconds
-    if (textRef3.current) {
-      tl.fromTo(
+        { opacity: 1, x: 0, duration: 1.5, ease: 'power2.out', stagger: 0.05 }
+      )
+      .fromTo(
         textRef3.current,
         { opacity: 0, y: 100, rotation: 180 },
-        {
-          opacity: 1,
-          y: 0,
-          rotation: 0,
-          duration: 1.5,
-          ease: "power2.out",
-          onComplete: () => {
-            // Neon flicker effect with irregular timing for 3.5 seconds
-            gsap.to(textRef3.current, {
-              opacity: 0.5,
-              repeat:1,
-              duration: 1,
-              ease: "easeIn.inOut",
-              yoyo: true,
-              repeatDelay: 0.05,
-              onComplete: () => {
-                gsap.set(textRef3.current, { opacity: 1 }); // Ensure the text is fully visible after the flicker ends
-              },
-            });
-          },
-        }
+        { opacity: 1, y: 0, rotation: 0, duration: 1.5, ease: 'power2.out' }
+      )
+      .to(textRef3.current, {
+        opacity: 0.5,
+        repeat: 5,
+        yoyo: true,
+        duration: 0.1,
+        ease: 'power1.inOut',
+        repeatDelay: 0.05,
+      });
+
+    const secondTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: additionalTextRef1.current,
+        start: 'top 50%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse',
+        markers:true
+      },
+    });
+
+    secondTimeline
+      .fromTo(
+        additionalTextRef1.current,
+        { opacity: 0, x: -100 },
+        { opacity: 1, x: 0, duration: 1.5, ease: 'power2.out' }
+      )
+      .fromTo(
+        additionalTextRef2.current,
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 1.5, ease: 'power2.out' }
       );
-    }
-  });
+  }, []);
 
   return (
     <section className="flex flex-col justify-center items-center mt-10 px-6">
@@ -74,16 +83,13 @@ export default function WhatWeDo() {
             </span>
             <div className="flex flex-col">
               <div ref={textRef2} className="inline-block">
-                {"WE".split("").map((char, index) => (
+                {'WE'.split('').map((char, index) => (
                   <span key={index} className="char inline-block">
                     {char}
                   </span>
                 ))}
               </div>
-              <span
-                ref={textRef3}
-                className="block md:inline mt-4 neon-text"
-              >
+              <span ref={textRef3} className="block md:inline mt-4 neon-text">
                 DO
               </span>
             </div>
@@ -93,7 +99,7 @@ export default function WhatWeDo() {
         {/* Right bottom box */}
         <div className="flex items-center justify-center w-full md:w-1/2 border-2 border-foreground p-2">
           <div className="flex flex-col text-center md:text-left">
-            <div className="font-display text-6xl md:text-7xl text-center md:pt-20">
+            <div ref={additionalTextRef1} className="font-display text-6xl md:text-7xl text-center md:pt-20">
               <span className="block md:inline">
                 NEVER WORRY <br className="hidden md:block" />
               </span>
@@ -102,7 +108,7 @@ export default function WhatWeDo() {
               </span>
               <span className="block md:inline">AGAIN</span>
             </div>
-            <p className="mb-20 text-lg md:text-3xl mx-auto md:mx-0 mt-10 text-center">
+            <p ref={additionalTextRef2} className="mb-20 text-lg md:text-3xl mx-auto md:mx-0 mt-10 text-center">
               At Dark Forest Studios, we specialize in custom web design and
               development for small businesses across the US and Canada. Every
               line of code is meticulously crafted to ensure optimal performance
