@@ -13,9 +13,9 @@ export default function Offerings({}: Props) {
           alt="owner" 
           width={500} 
           height={500} 
-          className="object-cover h-full w-full rounded-t-full"
+          className="object-cover h-full w-full rounded-t-full border-2 border-black"
         />
-        <div className="absolute bottom-0 right-0 bg-background bg-opacity-75 text-foreground p-3 rounded-tl-lg font-display px-10 text-3xl">
+        <div className="absolute bottom-0 right-0 bg-background bg-opacity-75 text-foreground p-3 font-display px-10 text-3xl border-2 border-black">
           <p>JUSTIN GUERRERO</p>
           <p>OWNER, DEVELOPER</p>
         </div>
@@ -64,8 +64,7 @@ export default function Offerings({}: Props) {
           </div>
         </div>
         <div className="flex justify-center mt-10">
-          <button className="px-12 py-3 text-2xl bg-black hover:bg-background text-white hover:text-foreground border-2 border-background hover:border-foreground font-display">
-            CALL US
+        <button className="px-12 py-3 text-2xl bg-black hover:bg-background dark:hover:bg-foreground dark:hover:text-background text-background dark:text-foreground hover:text-black hover:text-foreground border-2 border-foreground hover:border-black font-display w-full sm:w-auto">          CALL US
           </button>
         </div>
       </div>

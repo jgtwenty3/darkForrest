@@ -1,7 +1,43 @@
+"use client"
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef } from 'react';
+import gsap from "gsap";
+import {useGSAP} from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 export default function Hero() {
+  const textRef = useRef<HTMLHeadingElement>(null);
+  const buttonRefs = useRef<HTMLAnchorElement[]>([]);
+
+  useGSAP(() => {
+    if (textRef.current) {
+      gsap.fromTo(textRef.current, {
+        opacity: 0,
+        scale: 0.5,
+        y: -50,
+      }, {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "bounce.out",
+      });
+    }
+
+    buttonRefs.current.forEach((button, index) => {
+      if (button) {
+        gsap.from(button, {
+          opacity: 0,
+          x: 50 * (index % 2 === 0 ? -1 : 1),
+          duration: 1,
+          delay: index * 0.3,
+          ease: "power2.out",
+        });
+      }
+    });
+  });
+
   return (
     <section id="hero" className="relative flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 overflow-visible">
       {/* Background Image */}
@@ -22,7 +58,7 @@ export default function Hero() {
       {/* Content (Moved Higher) */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mt-[-320px]">
         <span className="uppercase text-xl tracking-wide">Small Business Web Design</span>
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <h1 ref={textRef} className="text-4xl md:text-6xl font-bold mb-6">
           Hand-Coded Websites, Superior Results
         </h1>
         <p className="text-lg md:text-xl mb-6">
@@ -31,10 +67,22 @@ export default function Hero() {
         
         {/* Buttons */}
         <div className="flex gap-4">
-          <a href="#" className="px-6 py-3 text-lg bg-black hover:bg-white text-white hover:text-black rounded-lg hover:border-2 hover:border-black font-display">
+          <a
+            ref={(el) => {
+              if (el) buttonRefs.current[0] = el;
+            }}
+            href="#"
+            className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover:border-2 hover:border-black font-display border-2 border-foreground"
+          >
             GET STARTED
           </a>
-          <a href="#" className="px-6 py-3 text-lg bg-black hover:bg-white text-white hover:text-black rounded-lg hover:border-2 hover:border-black font-display">
+          <a
+            ref={(el) => {
+              if (el) buttonRefs.current[1] = el;
+            }}
+            href="#"
+            className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover-border-2 hover-border-black font-display border-2 border-foreground"
+          >
             {/* <Image src="/images/play-icon.svg" alt="Play" width={20} height={20} /> */}
             LEARN MORE
           </a>

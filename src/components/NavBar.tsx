@@ -26,19 +26,19 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex space-x-6 items-center uppercase">
-          <Link href="/" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">Home</Link>
+          <Link href="/" className="text-foreground dark:text-gray-300 hover:text-blue-500">Home</Link>
           <div className="relative group">
-            <button className="text-gray-600 dark:text-gray-300 hover:text-blue-500 flex items-center">
+            <button className="text-foreround dark:text-gray-300 hover:text-blue-500 flex items-center">
               SERVICES
               <span className="ml-1">▼</span>
             </button>
             <div className="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-md hidden group-hover:block">
-              <Link href="/web-design" className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Web Design</Link>
-              <Link href="/seo" className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">SEO</Link>
+              <Link href="/web-design" className="block px-4 py-2 text-foreground dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Web Design</Link>
+              <Link href="/seo" className="block px-4 py-2 text-foreground dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">SEO</Link>
             </div>
           </div>
-          <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">About</Link>
-          <Link href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">Contact</Link>
+          <Link href="/about" className="text-foreground dark:text-gray-300 hover:text-blue-500">About</Link>
+          <Link href="/contact" className="text-foreground dark:text-gray-300 hover:text-blue-500">Contact</Link>
 
           {/* Theme toggle button */}
           <button
