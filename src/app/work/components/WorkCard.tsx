@@ -8,7 +8,7 @@ type WorkCardProps = {
 
 export default function WorkCard({ title, videoUrl, linkUrl }: WorkCardProps) {
   return (
-    <div className="border-2 border-black overflow-hidden shadow-lg relative group">
+    <div className="border-2 border-foreground overflow-hidden shadow-lg relative group">
       <a href={linkUrl} target="_blank" rel="noopener noreferrer"> {/* Wrap the video in a link */}
         <div className="relative w-full h-0" style={{ paddingBottom: '56.25%' }}>
           <video

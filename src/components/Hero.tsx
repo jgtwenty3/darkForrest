@@ -1,12 +1,16 @@
 "use client";
 import React, { useRef, useEffect } from 'react';
 import gsap from "gsap";
+import { useTheme } from 'next-themes';
 
 export default function Hero() {
   const textRef = useRef<HTMLHeadingElement>(null);
   const smallTextRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
   const buttonRefs = useRef<HTMLAnchorElement[]>([]);
+  const sunRef = useRef<HTMLImageElement>(null);
+  const moonRef = useRef<HTMLImageElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -30,6 +34,26 @@ export default function Hero() {
       ), ); // Overlapping the previous animation by 0.5 seconds
   }, []);
 
+  useEffect(() => {
+    if (theme === 'light') {
+      gsap.to(sunRef.current, { y: 0, opacity: 1, duration: 1 });
+      gsap.to(moonRef.current, { y: -100, opacity: 0, duration: 1 });
+    } else if (theme === 'dark') {
+      gsap.to(sunRef.current, { y: -100, opacity: 0, duration: 1 });
+      gsap.to(moonRef.current, { y: 0, opacity: 1, duration: 1 });
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    if (theme === 'light') {
+      gsap.to(sunRef.current, { y: 0, opacity: 1, duration: 1 });
+      gsap.to(moonRef.current, { y: -100, opacity: 0, duration: 1 });
+    } else if (theme === 'dark') {
+      gsap.to(sunRef.current, { y: -100, opacity: 0, duration: 1 });
+      gsap.to(moonRef.current, { y: 0, opacity: 1, duration: 1 });
+    }
+  }, [theme]);
+
   return (
     <section id="hero" className="relative flex min-h-screen bg-gray-100 dark:bg-gray-800 overflow-visible">
       {/* Background Image */}
@@ -43,7 +67,9 @@ export default function Hero() {
           loading="lazy"
         />
       </picture>
-
+      {/* Sun and Moon Images */}
+      <img ref={sunRef} src="/images/sun.svg" alt="Sun" className="absolute top-2 right-0 md:w-60 md:h-60 w-28 h-28 hidden md:block" style={{ opacity: 0, transform: 'translateY(-100%)' }} />
+      <img ref={moonRef} src="/images/moon.svg" alt="Moon" className="absolute top-2 right-0 md:w-52 md:h-52 w-24 h-24 hidden md:block" style={{ opacity: 0, transform: 'translateY(0)' }} />
       {/* Content */}
       <div className="relative z-10 flex flex-col mt-20">
         <h1 ref={smallTextRef} className="uppercase text-4xl tracking-wide font-sans -mt-20">Small Business Web Design</h1>
@@ -59,7 +85,7 @@ export default function Hero() {
         </p>
         
         {/* Buttons */}
-        <div className="flex justify-center gap-4 md:absolute right-10 hidden top-48">
+        <div className="flex justify-center gap-4 absolute md:right-10 bottom-32 right-16 ">
           <a
             ref={(el) => {
               if (el) buttonRefs.current[0] = el;

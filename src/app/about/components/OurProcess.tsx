@@ -7,14 +7,14 @@ export default function OurProcess() {
     <div className="flex flex-col mt-10 md:mt-32">
       <div>
         <div className="flex justify-center ">
-          <h2 className="text-6xl md:text-11xl">
+          <h2 className="text-8xl md:text-11xl">
             OUR PROCESS IS A ONE STOP SHOP
           </h2>
         </div>
-        <div className="flex justify-center mt-10 space-x-1">
+        <div className="flex flex-col md:flex-row justify-center mt-10 space-x-1">
           <ProcessCards
             title="Discovery"
-            subtitle="Understanding Your Needs"
+            subtitle="Understanding you"
             description="We start with a quick questionaire to understand your business, your goals, what sets you apart, and your target audience to ensure our designs align with your vision."
           />
           <ProcessCards
