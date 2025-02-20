@@ -38,32 +38,26 @@ export default function Offerings() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <CheckCards
-              icon="/icons/check.svg"
               title="CUSTOM DESIGNED"
               description="Our designs are made in-house, which allows us to make anything we want."
             />
             <CheckCards
-              icon="/icons/check.svg"
               title="24/7 SUPPORT"
               description="We provide round-the-clock support to ensure your site runs smoothly."
             />
             <CheckCards
-              icon="/icons/check.svg"
               title="SEO OPTIMIZED"
               description="Our sites are built with SEO best practices to help you rank higher."
             />
             <CheckCards
-              icon="/icons/check.svg"
               title="HOSTING INCLUDED"
               description="Reliable and secure hosting is included with all our packages."
             />
             <CheckCards
-              icon="/icons/check.svg"
               title="LIFETIME UPDATES"
               description="Receive free lifetime updates for any of our designs."
             />
             <CheckCards
-              icon="/icons/check.svg"
               title="UNLIMITED CUSTOMIZATION"
               description="Customize your site as much as you want, without any extra charges."
             />
