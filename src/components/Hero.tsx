@@ -14,9 +14,9 @@ export default function Hero() {
     tl.fromTo(smallTextRef.current, 
       { x: '100%', opacity: 0 }, 
       { x: '0%', opacity: 1, duration: 1, ease: "power2.out" })
-      .fromTo(textRef.current, 
+      .fromTo(Array.from(textRef.current!.querySelectorAll('.char')), 
         { scale: 0.5, opacity: 0, y: -50 },
-        { scale: 1, opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
+        { scale: 1, opacity: 1, y: 0, duration: 2, ease: "power2.out", stagger: 0.05 },
         ) // Overlapping the previous animation by 0.5 seconds
       .fromTo(paragraphRef.current, 
         { opacity: 0, y: 50 }, 
@@ -44,12 +44,15 @@ export default function Hero() {
         />
       </picture>
 
-    
       {/* Content */}
       <div className="relative z-10 flex flex-col mt-20">
         <h1 ref={smallTextRef} className="uppercase text-4xl tracking-wide font-sans -mt-20">Small Business Web Design</h1>
         <h2 ref={textRef} className="text-8xl md:text-10xl font-bold mb-6">
-          Hand-Coded Websites, Superior Results
+        {'HAND-CODED WEBSITES, SUPERIOR RESULTS'.split('').map((char, index) => (
+                  <span key={index} className="char">
+                    {char}
+                  </span>
+                ))}
         </h2>
         <p ref={paragraphRef} className="text-3xl md:text-xl mb-6 md:ml-20">
           No page builders or WordPress. We offer 100% custom-coded websites starting at $125/month, as well as SEO services.

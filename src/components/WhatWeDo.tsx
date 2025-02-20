@@ -28,13 +28,13 @@ export default function WhatWeDo() {
     firstTimeline
       .fromTo(
         textRef1.current,
-        { opacity: 0, y: -100 },
-        { opacity: 1, y: 0, duration: 1.5, ease: 'power2.out' }
+        { opacity: 0, y: -100 ,},
+        { opacity: 1, y: 0, duration: 1, scale:2, ease: 'power2.out' }
       )
       .fromTo(
         textRef2.current!.querySelectorAll('.char'),
         { opacity: 0, x: (index) => (index % 2 === 0 ? -50 : 50) },
-        { opacity: 1, x: 0, duration: 1.5, ease: 'power2.out', stagger: 0.05 }
+        { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', stagger: 0.05 }
       )
       .fromTo(
         textRef3.current,

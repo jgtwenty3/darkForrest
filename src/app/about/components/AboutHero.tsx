@@ -6,12 +6,13 @@ export default function AboutHero() {
 	<section>
 		<div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground '>
       {/* we want to animate on scroll for this to move black left of this from right to left */}
+        <div className='flex-1'></div>
         <h1 className='flex flex-col border-l-2 border-l-foreground p-20 md:p-0'>ABOUT <span className='md:ml-60 ml-28'>US</span></h1>
       </div>
       <div className='mt-5 ml-1'>
         <div>
           <h2 className='text-6xl font-sans'>
-            We make web experiences with purpose and originality.
+            We make web experiences with purpose and personality.
           </h2>
         </div>
 

@@ -6,7 +6,7 @@ export default function OurProcess() {
   return (
     <div className="flex flex-col mt-10 md:mt-32">
       <div>
-        <div className="flex justify-center">
+        <div className="flex justify-center ">
           <h2 className="text-6xl md:text-11xl">
             OUR PROCESS IS A ONE STOP SHOP
           </h2>
