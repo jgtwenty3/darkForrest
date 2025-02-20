@@ -1,8 +1,7 @@
 import React from 'react'
 
-type Props = {}
 
-export default function AboutHero({}: Props) {
+export default function AboutHero() {
   return (
 	<section>
 		<div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground '>

@@ -1,7 +1,6 @@
 "use client";
-import Image from 'next/image';
 import React, { useRef, useEffect } from 'react';
-import gsap from "gsap";
+// import gsap from "gsap";
 
 export default function Hero() {
   const textRef = useRef<HTMLHeadingElement>(null);

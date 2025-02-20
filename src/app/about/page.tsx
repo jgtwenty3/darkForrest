@@ -1,9 +1,8 @@
 import React from 'react'
 import AboutHero from './components/AboutHero'
 
-type Props = {}
 
-export default function AboutPage({}: Props) {
+export default function AboutPage() {
   return (
     <div className='min-h-screen'>
       <AboutHero/>

@@ -104,7 +104,7 @@ export default function WhatWeDo() {
               line of code is meticulously crafted to ensure optimal performance
               and search engine visibility, helping your business attract more
               customers and increase revenue. We also offer ongoing management
-              and support, so you're never left without assistance. Our mission
+              and support, so you&apos;re never left without assistance. Our mission
               is to build lasting relationships with our clients and support
               their growth every step of the way.
             </p>

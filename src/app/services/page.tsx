@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-export default function ServicesPage({}: Props) {
+export default function ServicesPage() {
   return (
     <div>ServicesPage</div>
   )

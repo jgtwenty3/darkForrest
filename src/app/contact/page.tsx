@@ -1,16 +1,7 @@
-"use client"
-import React, { Component } from 'react'
+import React from 'react'
 
-type Props = {}
-
-type State = {}
-
-export default class ContactPage extends Component<Props, State> {
-  state = {}
-
-  render() {
-    return (
-      <div>ContactPage</div>
-    )
-  }
+export default function ContactPage() {
+  return (
+    <div>ContactPage</div>
+  )
 }
