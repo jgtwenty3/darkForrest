@@ -13,6 +13,7 @@ export default function WhatWeDo() {
   const textRef3 = useRef<HTMLSpanElement>(null);
   const additionalTextRef1 = useRef<HTMLDivElement>(null);
   const additionalTextRef2 = useRef<HTMLDivElement>(null);
+  const cardDivRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const firstTimeline = gsap.timeline({
@@ -47,30 +48,19 @@ export default function WhatWeDo() {
         duration: 0.1,
         ease: 'power1.inOut',
         repeatDelay: 0.05,
-      });
-
-    const secondTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: additionalTextRef1.current,
-        start: 'top 50%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none reverse',
-        markers:true
-      },
-    });
-
-    secondTimeline
+      })
       .fromTo(
         additionalTextRef1.current,
         { opacity: 0, x: -100 },
-        { opacity: 1, x: 0, duration: 1.5, ease: 'power2.out' }
+        { opacity: 1, x: 0, duration: 1, ease: 'power2.out', }
       )
       .fromTo(
         additionalTextRef2.current,
         { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 1.5, ease: 'power2.out' }
+        { opacity: 1, scale: 1, duration: 1, ease: 'power2.out',  }
       );
   }, []);
+
 
   return (
     <section className="flex flex-col justify-center items-center mt-10 px-6">
@@ -89,7 +79,7 @@ export default function WhatWeDo() {
                   </span>
                 ))}
               </div>
-              <span ref={textRef3} className="block md:inline mt-4 neon-text">
+              <span ref={textRef3} className="block md:inline mt-0 neon-text">
                 DO
               </span>
             </div>
@@ -122,7 +112,7 @@ export default function WhatWeDo() {
         </div>
       </div>
 
-      <div className="w-4/5 mt-10">
+      <div ref = {cardDivRef} className="w-4/5 mt-10">
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <li>
             <OfferCard

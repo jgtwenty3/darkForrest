@@ -2,9 +2,15 @@ import Image from 'next/image'
 import React from 'react'
 import CheckCards from './CheckCards'
 
-type Props = {}
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
-export default function Offerings({}: Props) {
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
+
+
+export default function Offerings() {
   return (
     <section className="flex flex-col md:flex-row justify-around items-center mt-20 px-6">
       <div className="relative w-full md:w-1/2">
@@ -15,7 +21,7 @@ export default function Offerings({}: Props) {
           height={500} 
           className="object-cover h-full w-full rounded-t-full border-2 border-black"
         />
-        <div className="absolute bottom-0 right-0 bg-background bg-opacity-75 text-foreground p-3 font-display px-10 text-3xl border-2 border-black">
+        <div className="absolute bottom-0 right-0 bg-background bg-opacity-75 text-foreground p-3 font-display px-10 text-3xl border-2 border-black hover:scale-110">
           <p>JUSTIN GUERRERO</p>
           <p>OWNER, DEVELOPER</p>
         </div>

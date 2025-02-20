@@ -1,49 +1,38 @@
-"use client"
+"use client";
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import gsap from "gsap";
-import {useGSAP} from "@gsap/react";
-
-gsap.registerPlugin(useGSAP);
 
 export default function Hero() {
   const textRef = useRef<HTMLHeadingElement>(null);
+  const smallTextRef = useRef<HTMLHeadingElement>(null);
+  const paragraphRef = useRef<HTMLParagraphElement>(null);
   const buttonRefs = useRef<HTMLAnchorElement[]>([]);
 
-  const tl = gsap.timeline()
+  // useEffect(() => {
+  //   const tl = gsap.timeline();
 
-  //header animation
-  useGSAP(() => {
-    if (textRef.current) {
-      tl.fromTo(textRef.current, {
-        opacity: 0,
-        scale: 0.5,
-        y: -50,
-      }, {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power.out",
-      });
-    }
-
-    //buttons animation
-    buttonRefs.current.forEach((button, index) => {
-      if (button) {
-        tl.from(button, {
-          opacity: 0,
-          x: 50 * (index % 2 === 0 ? -1 : 1),
-          duration: 1,
-          delay: index * 0.1,
-          ease: "power2.out",
-        });
-      }
-    });
-  });
+  //   tl.fromTo(smallTextRef.current, 
+  //     { x: '100%', opacity: 0 }, 
+  //     { x: '0%', opacity: 1, duration: 1, ease: "power2.out" })
+  //     .fromTo(textRef.current, 
+  //       { scale: 0.5, opacity: 0, y: -50 },
+  //       { scale: 1, opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
+  //       ) // Overlapping the previous animation by 0.5 seconds
+  //     .fromTo(paragraphRef.current, 
+  //       { opacity: 0, y: 50 }, 
+  //       { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+  //       ) // Overlapping the previous animation by 1 second
+  //     .add(buttonRefs.current.map((button, index) =>
+  //       gsap.fromTo(button, 
+  //         { opacity: 0, x: 50 * (index % 2 === 0 ? -1 : 1) },
+  //         { opacity: 1, x: 0, duration: 1, delay: index * 0.2, ease: "power2.out" }
+  //       )
+  //     ), ); // Overlapping the previous animation by 0.5 seconds
+  // }, []);
 
   return (
-    <section id="hero" className="relative flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 overflow-visible">
+    <section id="hero" className="relative flex min-h-screen bg-gray-100 dark:bg-gray-800 overflow-visible">
       {/* Background Image */}
       <picture className="absolute inset-0 z-0">
         <source media="(max-width: 600px)" srcSet="/images/forrest.svg" />
@@ -56,27 +45,26 @@ export default function Hero() {
         />
       </picture>
 
-    
       {/* <UFOScene /> */}
 
-      {/* Content (Moved Higher) */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mt-[-320px]">
-        <span className="uppercase text-4xl tracking-wide">Small Business Web Design</span>
-        <h1 ref={textRef} className="text-4xl md:text-6xl font-bold mb-6">
+      {/* Content */}
+      <div className="relative z-10 flex flex-col mt-20">
+        <h1 ref={smallTextRef} className="uppercase text-4xl tracking-wide font-sans -mt-20">Small Business Web Design</h1>
+        <h2 ref={textRef} className="text-8xl md:text-10xl font-bold mb-6">
           Hand-Coded Websites, Superior Results
-        </h1>
-        <p className="text-2xl md:text-3xl mb-6">
+        </h2>
+        <p ref={paragraphRef} className="text-3xl md:text-xl mb-6 md:ml-20">
           No page builders or WordPress. We offer 100% custom-coded websites starting at $125/month, as well as SEO services.
         </p>
         
         {/* Buttons */}
-        <div className="flex gap-4">
+        <div className="flex justify-center gap-4 md:absolute right-10 hidden top-48">
           <a
             ref={(el) => {
               if (el) buttonRefs.current[0] = el;
             }}
             href="#"
-            className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover:border-2 hover:border-black font-display border-2 border-foreground"
+            className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover:border-2 hover:border-black font-display border-2"
           >
             GET STARTED
           </a>
@@ -85,7 +73,7 @@ export default function Hero() {
               if (el) buttonRefs.current[1] = el;
             }}
             href="#"
-            className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover-border-2 hover-border-black font-display border-2 border-foreground"
+            className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover-border-2 hover-border-black font-display border-2"
           >
             {/* <Image src="/images/play-icon.svg" alt="Play" width={20} height={20} /> */}
             LEARN MORE

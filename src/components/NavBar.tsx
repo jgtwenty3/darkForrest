@@ -7,7 +7,7 @@ import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -23,33 +23,28 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-background shadow-md sticky top-0 z-50 border-2 border-black">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="bg-background shadow-md sticky top-0 z-50 border-b-2 border-b-foreground w-full">
+      <div className=" flex items-center justify-between w-full">
         {/* Logo */}
-        <Link href="/" className="text-3xl md:text-5xl font-semibold font-display">
+        <div className='border-r-2 border-foreground py-4'>
+        <Link href="/" className="text-3xl md:text-5xl font-semibold font-display mr-2">
           DARK FOREST STUDIOS
         </Link>
+        </div>
+       
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-6 items-center uppercase text-xl">
-          <Link href="/" className="text-foreground dark:text-gray-300 hover:text-blue-500">Home</Link>
-          <div className="relative group">
-            <button className="text-foreground dark:text-gray-300 hover:text-blue-500 flex items-center">
-              SERVICES
-              <span className="ml-1">▼</span>
-            </button>
-            <div className="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-md hidden group-hover:block">
-              <Link href="/web-design" className="block px-4 py-2 text-foreground dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Web Design</Link>
-              <Link href="/seo" className="block px-4 py-2 text-foreground dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">SEO</Link>
-            </div>
-          </div>
-          <Link href="/about" className="text-foreground dark:text-gray-300 hover:text-blue-500">About</Link>
-          <Link href="/work" className="text-foreground dark:text-gray-300 hover:text-blue-500">WORK</Link>
-          <Link href="/contact" className="text-foreground dark:text-gray-300 hover:text-blue-500">Contact</Link>
+        <div className="hidden md:flex space-x-6 items-center uppercase text-xl p-2">
+          <Link href="/" className="text-foreground dark:text-gray-300">Home</Link>
+          <Link href="/about" className="text-foreground dark:text-gray-300">About</Link>
+          <Link href="/services" className="block px-4 py-2 text-foreground dark:text-gray-300">Services</Link>
+          
+          <Link href="/work" className="text-foreground dark:text-gray-300">WORK</Link>
+          <Link href="/contact" className="text-foreground dark:text-gray-300">Contact</Link>
 
           {/* Theme toggle button */}
-          <button onClick={handleThemeToggle} className="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
-            {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+          <button onClick={handleThemeToggle} className="p-2 bg-gray-200 dark:bg-gray-700 border-2 border-foreground">
+            {theme === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}
           </button>
         </div>
 
@@ -77,4 +72,3 @@ export default function Navbar() {
     </nav>
   );
 }
-

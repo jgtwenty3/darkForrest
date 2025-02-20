@@ -18,6 +18,12 @@ export default {
         sans: ["var(--font-teko)", "sans-serif"],
         display: ["var(--font-anton)", "sans-serif"],
       },
+      fontSize: {
+        '10xl': '10rem', // You can adjust the value as needed
+        '11xl': '12rem',
+        '12xl': '14rem',
+        // Add more sizes if needed
+      },
     },
   },
   plugins: [],
