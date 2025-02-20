@@ -1,0 +1,28 @@
+import React from 'react';
+import WorkCard from './WorkCard'; 
+
+export default function WorkHero() {
+  const workItems = [
+    { title: 'LYONSHARE PUBLIC HOUSE', videoUrl: '/videos/lyonshare.mp4', linkUrl: 'https://lyonsharebeacon.com/' },
+    { title: 'L TRAIN SKATE Co.', videoUrl: '/videos/ltrainskate.mp4', linkUrl: 'https://ltrainskateco.netlify.app/' },
+    { title: 'SWISH SOCIAL', videoUrl: '/videos/swish.mp4', linkUrl: 'https://example.com/swish' },
+    { title: 'ROBERT NOBLE', videoUrl: '/videos/robertNoble.mp4', linkUrl: 'https://robertnoble.vercel.app/' },
+    { title: 'CODEHUB', videoUrl: '/videos/codehub.mp4', linkUrl: 'https://codhub-ashen.vercel.app/' },
+   
+    // Add more work items as needed
+  ];
+
+  return (
+    <section>
+      <div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground'>
+        <div className='flex-1'></div>
+        <h1 className='flex flex-col border-l-2 border-l-foreground p-20 md:p-0'>WORK</h1>
+      </div>
+      <div className='p-10 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
+        {workItems.map((item, index) => (
+          <WorkCard key={index} title={item.title} videoUrl={item.videoUrl} linkUrl={item.linkUrl} />
+        ))}
+      </div>
+    </section>
+  );
+}
