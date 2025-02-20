@@ -28,10 +28,10 @@ export default function Offerings() {
       </div>
       <div className="w-full md:w-1/2 p-6">
         <div className="flex flex-col items-center">
-          <h3 className="text-4xl md:text-7xl mt-5 mb-5 underline">
+          <h3 className="text-4xl md:text-7xl mt-5 mb-5">
             WHAT WE OFFER
           </h3>
-          <p className="md:w-3/5 mb-20 text-lg md:text-xl leading-relaxed">
+          <p className="md:w-3/5 mb-20 text-lg md:text-3xl leading-relaxed">
             We offer $0 down for a standard 5 page small business website. 
             If you need more than that, we have to do custom pricing based on the scope of work, number of additional pages, and time involved. 
             12 month minimum contract. Includes design, development, hosting, unlimited edits, 24/7 support, and lifetime updates.

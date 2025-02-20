@@ -16,7 +16,7 @@ const CheckCards: React.FC<Props> = ({ icon, title, description }) => {
         <h4 className="text-3xl font-semibold text-gray-900 dark:text-white mt-4">
           {title}
         </h4>
-        <p className="text-lg text-gray-700 dark:text-gray-300 mt-2">
+        <p className="text-lg md:text-2xl text-gray-700 dark:text-gray-300 mt-2">
           {description}
         </p>
       </div>

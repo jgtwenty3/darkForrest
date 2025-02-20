@@ -43,7 +43,7 @@ export default function Navbar() {
           <Link href="/contact" className="text-foreground dark:text-gray-300">Contact</Link>
 
           {/* Theme toggle button */}
-          <button onClick={handleThemeToggle} className="p-2 bg-gray-200 dark:bg-gray-700 border-2 border-foreground">
+          <button onClick={handleThemeToggle} className="p-2 bg-gray-200 dark:bg-gray-800 border-2 border-foreground">
             {theme === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}
           </button>
         </div>
