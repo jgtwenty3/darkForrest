@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-export default function WorkPage({}: Props) {
+export default function WorkPage() {
   return (
     <div>WorkPage</div>
   )

@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from 'react';
-// import gsap from "gsap";
+import gsap from "gsap";
 
 export default function Hero() {
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -8,27 +8,27 @@ export default function Hero() {
   const paragraphRef = useRef<HTMLParagraphElement>(null);
   const buttonRefs = useRef<HTMLAnchorElement[]>([]);
 
-  // useEffect(() => {
-  //   const tl = gsap.timeline();
+  useEffect(() => {
+    const tl = gsap.timeline();
 
-  //   tl.fromTo(smallTextRef.current, 
-  //     { x: '100%', opacity: 0 }, 
-  //     { x: '0%', opacity: 1, duration: 1, ease: "power2.out" })
-  //     .fromTo(textRef.current, 
-  //       { scale: 0.5, opacity: 0, y: -50 },
-  //       { scale: 1, opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
-  //       ) // Overlapping the previous animation by 0.5 seconds
-  //     .fromTo(paragraphRef.current, 
-  //       { opacity: 0, y: 50 }, 
-  //       { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-  //       ) // Overlapping the previous animation by 1 second
-  //     .add(buttonRefs.current.map((button, index) =>
-  //       gsap.fromTo(button, 
-  //         { opacity: 0, x: 50 * (index % 2 === 0 ? -1 : 1) },
-  //         { opacity: 1, x: 0, duration: 1, delay: index * 0.2, ease: "power2.out" }
-  //       )
-  //     ), ); // Overlapping the previous animation by 0.5 seconds
-  // }, []);
+    tl.fromTo(smallTextRef.current, 
+      { x: '100%', opacity: 0 }, 
+      { x: '0%', opacity: 1, duration: 1, ease: "power2.out" })
+      .fromTo(textRef.current, 
+        { scale: 0.5, opacity: 0, y: -50 },
+        { scale: 1, opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
+        ) // Overlapping the previous animation by 0.5 seconds
+      .fromTo(paragraphRef.current, 
+        { opacity: 0, y: 50 }, 
+        { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+        ) // Overlapping the previous animation by 1 second
+      .add(buttonRefs.current.map((button, index) =>
+        gsap.fromTo(button, 
+          { opacity: 0, x: 50 * (index % 2 === 0 ? -1 : 1) },
+          { opacity: 1, x: 0, duration: 1, delay: index * 0.2, ease: "power2.out" }
+        )
+      ), ); // Overlapping the previous animation by 0.5 seconds
+  }, []);
 
   return (
     <section id="hero" className="relative flex min-h-screen bg-gray-100 dark:bg-gray-800 overflow-visible">
