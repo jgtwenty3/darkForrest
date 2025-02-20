@@ -1,12 +1,12 @@
 import React from 'react'
 
 type Props = {
-  icon: string;
+ 
   title: string;
   description: string;
 }
 
-const CheckCards: React.FC<Props> = ({ icon, title, description }) => {
+const CheckCards: React.FC<Props> = ({  title, description }) => {
   return (
     <div className="relative flex flex-col items-center justify-center text-center bg-white dark:bg-gray-800 p-6 border-2 border-black shadow-xl shadow-black">
         {/* <div className="absolute top-[-20px] left-[-20px] bg-gray-100 dark:bg-gray-700 p-2 rounded-full shadow-lg border-2 border-foreground shadow-black">

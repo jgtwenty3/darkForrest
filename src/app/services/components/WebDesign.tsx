@@ -9,7 +9,7 @@ export default function WebDesign() {
 			<h5 className='text-5xl mb-2'>Custom Web Design & Development</h5>
 
 			<p className='text-3xl'>
-				No page builders here. We write all of our code by hand from start to finish. No bloat or wasted code from a template that wasn't designed for you. 
+				No page builders here. We write all of our code by hand from start to finish. No bloat or wasted code from a template that wasn&apos;t designed for you. 
 				Our pages are faster and more secure all while keeping your page feeling like YOU.
 			</p>
 			
