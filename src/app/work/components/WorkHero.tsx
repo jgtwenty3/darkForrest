@@ -5,8 +5,8 @@ export default function WorkHero() {
   const workItems = [
     { title: 'LYONSHARE PUBLIC HOUSE', videoUrl: '/videos/lyonshare.mp4', linkUrl: 'https://lyonsharebeacon.com/' },
     { title: 'L TRAIN SKATE Co.', videoUrl: '/videos/ltrainskate.mp4', linkUrl: 'https://ltrainskateco.netlify.app/' },
-	{ title: 'ROBERT NOBLE', videoUrl: '/videos/robertNoble.mp4', linkUrl: 'https://robertnoble.vercel.app/' },
-	{ title: 'SWISH SOCIAL', videoUrl: '/videos/swish.mp4', linkUrl: 'https://example.com/swish' },
+	  { title: 'ROBERT NOBLE', videoUrl: '/videos/robert.mp4', linkUrl: 'https://robertnoble.vercel.app/' },
+	  { title: 'SWISH SOCIAL', videoUrl: '/videos/swish.mp4', linkUrl: 'https://example.com/swish' },
     { title: 'CODEHUB', videoUrl: '/videos/codehub.mp4', linkUrl: 'https://codhub-ashen.vercel.app/' },
    
     // Add more work items as needed
