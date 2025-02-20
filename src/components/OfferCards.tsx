@@ -20,7 +20,7 @@ const OfferCard: React.FC<CardProps> = ({ icon, title, description }) => {
       </h3>
 
       {/* Description */}
-      <p className="text-foreground dark:text-gray-300 mt-6 text-xl flex-grow">{description}</p>
+      <p className="text-foreground dark:text-gray-300 mt-6 text-xl md:text-2xl flex-grow">{description}</p>
     </div>
   );
 };

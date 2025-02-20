@@ -9,9 +9,6 @@ export default function Home() {
       <Hero/>
       <WhatWeDo/>
       <Offerings/>
-   
-      
-     
     </div>
   );
 }

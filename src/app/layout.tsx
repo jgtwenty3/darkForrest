@@ -3,6 +3,7 @@ import { Inter, Anton, Teko } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar";
 import { ThemeProvider } from "next-themes";
+import Footer from "@/components/Footer";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -39,6 +40,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>

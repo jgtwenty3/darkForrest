@@ -56,15 +56,12 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 shadow-md py-4 px-6">
+        <div className="md:hidden bg-white dark:bg-background shadow-md py-4 px-6 text-2xl border-t-2 uppercase">
           <Link href="/" className="block py-2 text-gray-600 dark:text-gray-300">Home</Link>
-          <div className="py-2">
-            <button className="w-full text-left text-gray-600 dark:text-gray-300">SERVICES ▼</button>
-            <div className="ml-4">
-              <Link href="/web-design" className="block py-2 text-gray-600 dark:text-gray-300">Web Design</Link>
-              <Link href="/seo" className="block py-2 text-gray-600 dark:text-gray-300">SEO</Link>
-            </div>
-          </div>
+        
+          <Link href="/services" className="block py-2 text-gray-600 dark:text-gray-300">Services</Link>
+            
+  
           <Link href="/about" className="block py-2 text-gray-600 dark:text-gray-300">About</Link>
           <Link href="/contact" className="block py-2 text-gray-600 dark:text-gray-300">Contact</Link>
         </div>
