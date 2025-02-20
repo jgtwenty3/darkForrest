@@ -44,8 +44,7 @@ export default function Hero() {
         />
       </picture>
 
-      {/* <UFOScene /> */}
-
+    
       {/* Content */}
       <div className="relative z-10 flex flex-col mt-20">
         <h1 ref={smallTextRef} className="uppercase text-4xl tracking-wide font-sans -mt-20">Small Business Web Design</h1>
