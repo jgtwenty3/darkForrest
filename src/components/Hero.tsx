@@ -72,7 +72,7 @@ export default function Hero() {
                 ))}
         </h2>
         <p ref={paragraphRef} className="text-3xl md:text-xl mb-6 md:ml-20">
-          No page builders or WordPress. We offer 100% custom-coded websites starting at $125/month, as well as SEO services.
+          No page builders or WordPress. We offer 100% custom-coded websites starting at $150/month, as well as SEO services.
         </p>
         
         {/* Buttons */}
