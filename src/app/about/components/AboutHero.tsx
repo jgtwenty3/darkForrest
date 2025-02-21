@@ -6,7 +6,7 @@ const AboutHero: React.FC = () => {
     <header>
       <div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground'>
         {/* we want to animate on scroll for this to move black left of this from right to left */}
-        <div className='relative flex-1'> <AWaves /></div>
+        <div className='flex-1'> </div>
         <h1 className='flex flex-col border-l-2 border-l-foreground p-10 md:p-0'>
           ABOUT <span className='md:ml-60 ml-28'>US</span>
         </h1>

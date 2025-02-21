@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from "gsap";
 import { useTheme } from 'next-themes';
+import AWaves from './AWaves';
 
 export default function Hero() {
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -15,17 +16,17 @@ export default function Hero() {
   useEffect(() => {
     const tl = gsap.timeline();
 
-    tl.fromTo(smallTextRef.current, 
-      { x: '100%', opacity: 0 }, 
-      { x: '0%', opacity: 1, duration: 1, ease: "power2.out" })
-      .fromTo(Array.from(textRef.current!.querySelectorAll('.char')), 
+    // fromTo(smallTextRef.current, 
+    //   { x: '100%', opacity: 0 }, 
+    //   { x: '0%', opacity: 1, duration: 1, ease: "power2.out" })
+      tl.fromTo(Array.from(textRef.current!.querySelectorAll('.char')), 
         { scale: 0.5, opacity: 0, y: -50 },
         { scale: 1, opacity: 1, y: 0, duration: 2, ease: "power2.out", stagger: 0.05 },
         ) // Overlapping the previous animation by 0.5 seconds
-      .fromTo(paragraphRef.current, 
-        { opacity: 0, y: 50 }, 
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-        ) // Overlapping the previous animation by 1 second
+      // .fromTo(paragraphRef.current, 
+      //   { opacity: 0, y: 50 }, 
+      //   { opacity: 0, y: 0, duration: 1, ease: "power2.out" },
+      //   ) // Overlapping the previous animation by 1 second
       .add(buttonRefs.current.map((button, index) =>
         gsap.fromTo(button, 
           { opacity: 0, x: 50 * (index % 2 === 0 ? -1 : 1) },
@@ -48,22 +49,23 @@ export default function Hero() {
   return (
     <section id="hero" className="relative flex min-h-screen bg-gray-100 dark:bg-gray-800 overflow-visible">
       {/* Background Image */}
-      <picture className="absolute inset-0 z-0">
-        <source media="(max-width: 600px)" srcSet="/images/forrest.svg" />
+      <picture className="absolute inset-0 z-0 border-b-2 border-foreground">
+        {/* <source media="(max-width: 600px)" srcSet="/images/forrest.svg" />
         <source media="(min-width: 601px)" srcSet="/images/forrest.svg" />
         <img
           src="/images/forrest.svg"
           alt="Hero Background"
           className="object-cover w-full h-full"
           loading="lazy"
-        />
+        /> */}
+        <AWaves/>
       </picture>
       {/* Sun and Moon Images */}
       <img ref={sunRef} src="/images/sun.svg" alt="Sun" className="absolute top-2 right-0  w-28 h-28 hidden md:block" style={{ opacity: 0, transform: 'translateY(-100%)' }} />
       <img ref={moonRef} src="/images/moon.svg" alt="Moon" className="absolute top-2 right-0  w-24 h-24 hidden md:block" style={{ opacity: 0, transform: 'translateY(0)' }} />
       {/* Content */}
       <div className="relative z-10 flex flex-col mt-20">
-        <h1 ref={smallTextRef} className="uppercase text-4xl tracking-wide font-sans -mt-20">Small Business Web Design</h1>
+        <h1 ref={smallTextRef} className="uppercase text-4xl tracking-wide font-sans -mt-20 opacity-0">Small Business Web Design</h1>
         <h2 ref={textRef} className="text-8xl md:text-10xl font-bold mb-6">
         {'HAND-CODED WEBSITES, SUPERIOR RESULTS'.split('').map((char, index) => (
                   <span key={index} className="char">
@@ -71,7 +73,7 @@ export default function Hero() {
                   </span>
                 ))}
         </h2>
-        <p ref={paragraphRef} className="text-3xl md:text-xl mb-6 md:ml-20">
+        <p ref={paragraphRef} className="text-3xl md:text-xl mb-6 md:ml-20 opacity-0">
           No page builders or WordPress. We offer 100% custom-coded websites starting at $150/month, as well as SEO services.
         </p>
         
