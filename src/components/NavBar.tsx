@@ -104,6 +104,7 @@ export default function Navbar() {
         <Link href="/about" className="block py-2 text-foreground" onClick={() => setIsOpen(false)}>About</Link>
         <Link href="/services" className="block py-2 text-foreground" onClick={() => setIsOpen(false)}>Services</Link>
         <Link href="/work" className="block py-2 text-foreground" onClick={() => setIsOpen(false)}>Work</Link>
+        <Link href="/pricing" className="block py-2 text-foreground" onClick={() => setIsOpen(false)}>PRICING</Link>
         <Link href="/contact" className="block py-2 text-foreground" onClick={() => setIsOpen(false)}>Contact</Link>
         <button onClick={handleThemeToggle} className="block py-2 text-foreground">
           {theme === 'dark' ? 'RISE N SHINE' : 'LIGHTS OUT'}

@@ -1,4 +1,5 @@
 "use client"
+import AWaves from '@/components/AWaves';
 import React, { useState } from 'react';
 
 export default function ContactPage() {
@@ -27,7 +28,7 @@ export default function ContactPage() {
     <div className='min-h-screen'>
       <header className=''>
         <div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground'>
-          <div className='flex-1'></div>
+          <div className='relative flex-1'> <AWaves /> {/* AWaves Component */}</div>
           <h1 className='flex flex-col border-l-2 border-l-foreground p-5 md:p-5'>CONTACT</h1>
         </div>
       </header>
