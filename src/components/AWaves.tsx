@@ -4,6 +4,7 @@
 import { useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const Noise = require('noisejs').Noise;
 
 interface Mouse {
@@ -31,7 +32,7 @@ const AWaves: React.FC = () => {
   const { theme } = useTheme();
 
   useEffect(() => {
-    if (!theme) return
+    
     const canvas = canvasRef.current;
     const ctx = canvas!.getContext('2d')!;
     const dpr = window.devicePixelRatio || 1;
