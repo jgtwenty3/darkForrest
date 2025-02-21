@@ -32,17 +32,8 @@ export default function Hero() {
           { opacity: 1, x: 0, duration: 1, delay: index * 0.2, ease: "power2.out" }
         )
       ), ); // Overlapping the previous animation by 0.5 seconds
+      
   }, []);
-
-  useEffect(() => {
-    if (theme === 'light') {
-      gsap.to(sunRef.current, { y: 0, opacity: 1, duration: 1 });
-      gsap.to(moonRef.current, { y: -100, opacity: 0, duration: 1 });
-    } else if (theme === 'dark') {
-      gsap.to(sunRef.current, { y: -100, opacity: 0, duration: 1 });
-      gsap.to(moonRef.current, { y: 0, opacity: 1, duration: 1 });
-    }
-  }, [theme]);
 
   useEffect(() => {
     if (theme === 'light') {
@@ -68,8 +59,8 @@ export default function Hero() {
         />
       </picture>
       {/* Sun and Moon Images */}
-      <img ref={sunRef} src="/images/sun.svg" alt="Sun" className="absolute top-2 right-0 md:w-60 md:h-60 w-28 h-28 hidden md:block" style={{ opacity: 0, transform: 'translateY(-100%)' }} />
-      <img ref={moonRef} src="/images/moon.svg" alt="Moon" className="absolute top-2 right-0 md:w-52 md:h-52 w-24 h-24 hidden md:block" style={{ opacity: 0, transform: 'translateY(0)' }} />
+      <img ref={sunRef} src="/images/sun.svg" alt="Sun" className="absolute top-2 right-0  w-28 h-28 hidden md:block" style={{ opacity: 0, transform: 'translateY(-100%)' }} />
+      <img ref={moonRef} src="/images/moon.svg" alt="Moon" className="absolute top-2 right-0  w-24 h-24 hidden md:block" style={{ opacity: 0, transform: 'translateY(0)' }} />
       {/* Content */}
       <div className="relative z-10 flex flex-col mt-20">
         <h1 ref={smallTextRef} className="uppercase text-4xl tracking-wide font-sans -mt-20">Small Business Web Design</h1>
@@ -90,7 +81,7 @@ export default function Hero() {
             ref={(el) => {
               if (el) buttonRefs.current[0] = el;
             }}
-            href="#"
+            href="/contact"
             className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover:border-2 hover:border-black font-display border-2"
           >
             GET STARTED
@@ -99,7 +90,7 @@ export default function Hero() {
             ref={(el) => {
               if (el) buttonRefs.current[1] = el;
             }}
-            href="#"
+            href="/about"
             className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover-border-2 hover-border-black font-display border-2"
           >
             {/* <Image src="/images/play-icon.svg" alt="Play" width={20} height={20} /> */}

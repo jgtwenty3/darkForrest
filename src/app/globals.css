@@ -94,9 +94,17 @@ html[data-theme='dark'] {
 }
 @layer base {
   .font-outline-2 {
-    -webkit-text-stroke: 2px white;
+    -webkit-text-stroke: 1px white;
   }
   .font-outline-4 {
     -webkit-text-stroke: 4px white;
   }
 }
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+

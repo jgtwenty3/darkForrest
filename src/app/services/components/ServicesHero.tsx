@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ServicesHero() {
   return (
-	<section className=''>
+	<header className=''>
 		<div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground '>
       {/* we want to animate on scroll for this to move black left of this from right to left */}
         <div className='flex-1'></div>
@@ -10,16 +10,22 @@ export default function ServicesHero() {
       </div>
 		<div className='text-7xl md:text-8xl border-2 border-b-foreground'>
 			<a href ="#web-design">
-				<h2 className='mb-5 md:mb-0'>WEB DESIGN & DEVELOPMENT</h2>
+				<h2 className='mb-5 md:mb-0 hover:bg-foreground hover:text-background'>WEB DESIGN & DEVELOPMENT</h2>
 			</a>
-			<h3 className='mb-5 md:mb-0'>SOFTWARE DEVELOPMENT</h3>
-			<h4 className='mb-[30vh]'>SEO</h4>
+			<a href='#software'>
+				<h3 className='mb-5 md:mb-0 hover:bg-foreground hover:text-background'>SOFTWARE DEVELOPMENT</h3>
+
+			</a>
+			<a href = "#seo">
+				<h4 className='mb-[30vh] hover:bg-foreground hover:text-background'>SEO</h4>
+			</a>
+			
 		</div>
 		<div>
 			
 
 		</div>
 		
-	</section>
+	</header>
   )
 }

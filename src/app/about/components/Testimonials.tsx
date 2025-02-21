@@ -14,8 +14,13 @@ export default function Testimonials() {
 
 			<div className='flex flex-col mb-10'>
 				
-				<p className='text-3xl mb-5'> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis eaque voluptate dicta temporibus architecto ea ipsa quae quia in mollitia veritatis pariatur, ullam magnam facilis, assumenda fugit possimus numquam.</p>
-				<p className='text-4xl'>Bud S.</p>
+				<p className='text-3xl mb-5'>
+					Working with Justin was a pleasant and rewarding experience from inception to completion.
+					A consummate professional. 
+					He translated our vision for the website into an enviable finished product while taking our direction and adding his own flourishes.
+					What an asset for a technically challenged restaurateur.</p>
+				<p className='text-4xl'>Bud Schmeling </p>
+				<p className='text-2xl'>Owner, Lyonshare Public House </p>
 				<p className='text-2xl'>Beacon, NY</p>
 			</div>
 

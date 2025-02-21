@@ -64,8 +64,13 @@ export default function Offerings() {
           </div>
         </div>
         <div className="flex justify-center mt-10">
-        <button className="px-12 py-3 text-2xl bg-black hover:bg-background dark:hover:bg-foreground dark:hover:text-background text-background dark:text-foreground hover:text-black hover:text-foreground border-2 border-foreground hover:border-black font-display w-full sm:w-auto">          CALL US
-          </button>
+          <a href='/contact'>
+            <button 
+            className="px-12 py-3 text-2xl bg-black hover:bg-background dark:hover:bg-foreground dark:hover:text-background text-background dark:text-foreground hover:text-black hover:text-foreground border-2 border-foreground hover:border-black font-display w-full sm:w-auto">
+              CALL US
+            </button>
+          </a>
+        
         </div>
       </div>
     </section>

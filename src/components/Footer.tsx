@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <div className='p-6 md:p-10 mt-10 border-t-2 border-foreground flex flex-col md:flex-row justify-between'>
+    <div className='p-6 md:p-10 mt-10 border-t-2 border-foreground flex flex-col md:flex-row justify-between bg-background'>
       <div className='mb-6 md:mb-0'>
         <h6 className='text-xl md:text-3xl'>DARK FOREST STUDIOS</h6>
         <p className='text-lg md:text-2xl mt-2 mb-2'>

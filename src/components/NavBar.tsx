@@ -74,11 +74,12 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-6 items-center uppercase text-xl p-2">
+        <div className="hidden md:flex space-x-3 items-center uppercase text-xl px-2">
           <Link href="/" className="text-foreground dark:text-gray-300">Home</Link>
           <Link href="/about" className="text-foreground dark:text-gray-300">About</Link>
-          <Link href="/services" className="block px-4 py-2 text-foreground dark:text-gray-300">Services</Link>
+          <Link href="/services" className="text-foreground dark:text-gray-300">Services</Link>
           <Link href="/work" className="text-foreground dark:text-gray-300">WORK</Link>
+          <Link href="/pricing" className="text-foreground dark:text-gray-300">PRICING</Link>
           <Link href="/contact" className="text-foreground dark:text-gray-300">Contact</Link>
 
           {/* Theme toggle button */}
@@ -94,7 +95,11 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div ref={menuRef} style={{ overflow: 'hidden', height: 0 }} className="md:hidden bg-background shadow-md text-2xl border-t-2 border-foreground uppercase">
+      <div
+        ref={menuRef}
+        style={{ overflow: 'hidden', height: 0, borderTopWidth: '2px', opacity: isOpen ? 1 : 0 }}
+        className="md:hidden bg-background shadow-md text-2xl uppercase border-foreground transition-opacity duration-100"
+      >
         <Link href="/" className="block py-2 text-foreground" onClick={() => setIsOpen(false)}>Home</Link>
         <Link href="/about" className="block py-2 text-foreground" onClick={() => setIsOpen(false)}>About</Link>
         <Link href="/services" className="block py-2 text-foreground" onClick={() => setIsOpen(false)}>Services</Link>
@@ -104,6 +109,7 @@ export default function Navbar() {
           {theme === 'dark' ? 'RISE N SHINE' : 'LIGHTS OUT'}
         </button>
       </div>
+
     </nav>
   );
 }

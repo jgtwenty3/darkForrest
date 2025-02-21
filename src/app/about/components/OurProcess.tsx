@@ -11,21 +11,21 @@ export default function OurProcess() {
             OUR PROCESS IS A ONE STOP SHOP
           </h2>
         </div>
-        <div className="flex flex-col md:flex-row justify-center mt-10 space-x-1">
+        <div className="flex flex-col md:flex-row justify-center mt-10 space-x-1 ">
           <ProcessCards
             title="Discovery"
             subtitle="Understanding you"
-            description="We start with a quick questionaire to understand your business, your goals, what sets you apart, and your target audience to ensure our designs align with your vision."
+            description="Every project is unique, so our first step is to get to know you, your organization, and your industry inside out."
           />
           <ProcessCards
             title="Design"
             subtitle="Creating Beautiful Designs"
-            description="We'll schedule a video call to show you the first draft and make any changes you want. Be picky. It's your brand."
+            description="Next, we brainstorm multiple approaches—ranging from bold to conservative—but always focused on clear communication. Our designs prioritize both functionality and durability.."
           />
           <ProcessCards
             title="Development"
             subtitle="Bring It To Life"
-            description="Once approved, we'll start coding the site. You'll receive a demo link before launch."
+            description="Finally, we bring our designs to life, working together to ensure a smooth and successful launch."
           />
         </div>
       </div>
