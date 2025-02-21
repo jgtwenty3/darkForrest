@@ -1,5 +1,4 @@
 import React from 'react';
-import AWaves from '@/components/AWaves';
 
 const AboutHero: React.FC = () => {
   return (
