@@ -64,7 +64,7 @@ const HWaves: React.FC = () => {
       const { width, height } = canvas!.getBoundingClientRect();
       lines = [];
       const xGap = 10;
-      const yGap = 10;
+      const yGap = 8;
       const oWidth = width + 30;
       const oHeight = height + 200;
       const totalLines = Math.ceil(oHeight / yGap);

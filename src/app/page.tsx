@@ -109,8 +109,8 @@ export default function Home() {
             delivering pixel-perfect, lightning-fast websites. Every line of
             code is meticulously crafted for optimal performance and search
             engine visibility, helping your business attract more customers and
-            boost revenue. We offer ongoing support, ensuring you're never left
-            in the dark. Let's make your digital dreams a reality.
+            boost revenue. We offer ongoing support, ensuring you&apos;re never left
+            in the dark. Let&apos;s make your digital dreams a reality.
           </p>
         </div>
         <div className="w-full">
