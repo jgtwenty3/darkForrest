@@ -61,6 +61,7 @@ export default function Navbar() {
 
   const handleThemeToggle = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
+    setIsOpen(false)
   };
 
   return (

@@ -6,20 +6,24 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { useGSAP } from "@gsap/react"; // Correct import of the hook
+import UFOScene from "@/components/3d/UFO";
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(useGSAP);
 
 export default function Home() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
-  const firstAnim = useRef<HTMLDivElement>(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
   const secondAnim = useRef<HTMLDivElement>(null);
+  const bottomImage = useRef<HTMLDivElement>(null)
+  const ufoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
+
+    // UFO Animation
+    
 
     // Only initialize GSAP animations after the component has mounted
     if (mounted) {
@@ -31,7 +35,7 @@ export default function Home() {
         // First ScrollTrigger
         ScrollTrigger.create({
           animation: tl,
-          trigger: firstAnim.current,
+          trigger: headerRef.current,
           start: "top 80%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
@@ -57,6 +61,52 @@ export default function Home() {
           { opacity: 0, y: 100 },
           { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
         );
+
+        ScrollTrigger.create({
+          animation:tl,
+          trigger:backgroundRef.current,
+          start: "bottom 10%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        })
+        tl.fromTo(
+          ufoRef.current,
+          {
+            x:"-60vw"
+          },{
+            x:"0vw",
+            y:"20vh",
+            duration:2
+          },
+          
+        )
+        tl.to(
+          ufoRef.current,{
+            x:"30vw"
+          }
+        )
+        tl.to(
+          ufoRef.current,{
+            y:"40vw",
+            duration:1.2
+          
+          }
+        )
+
+        ScrollTrigger.create({
+          animation:tl,
+          trigger:bottomImage.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        })
+        tl.to(ufoRef.current,{x: "-80vw", // Final position off-screen
+        y: "100vh",
+        delay:3,
+        scale: 0.5, // Shrink as it exits
+        opacity: 0, // Fade out
+        duration: 2,
+        ease: "power2.in",})
       }
     }
   }, [mounted]);
@@ -67,8 +117,13 @@ export default function Home() {
   return (
     <div className="dark:bg-black">
       <Hero />
-      <section className="flex flex-col w-full">
-        <div ref={firstAnim} className="w-full">
+      <section ref = {backgroundRef} className="flex flex-col w-full relative">
+        {/* UFO Background Animation */}
+        <div ref={ufoRef} className=" hidden md:block absolute top-0 left-0 w-full h-fit pointer-events-none">
+          <UFOScene />
+        </div>
+
+        <div className="w-full">
           {theme === "dark" ? (
             <Image
               src="/images/whiteForest.svg"
@@ -89,12 +144,12 @@ export default function Home() {
             />
           )}
         </div>
-        <div className="absolute mt-80">
+        <div className="relative mt-5 flex flex-col items-center md:items-start">
           <div ref={headerRef} className="inline-block">
             {"WHAT WE DO".split("").map((char, index) => (
               <span
                 key={index}
-                className={`char inline-block font-display text-8xl ${
+                className={`char inline-block font-display text-8xl md:text-8xl ${
                   char === " " ? "space" : ""
                 }`}
               >
@@ -102,8 +157,7 @@ export default function Home() {
               </span>
             ))}
           </div>
-
-          <p ref={secondAnim} className="text-2xl md:w-2/3 md:mt-10">
+          <p ref={secondAnim} className="text-2xl md:w-2/3 mt-10">
             At Dark Forest Studios, we craft bespoke web experiences that
             captivate. We specialize in custom web design and development,
             delivering pixel-perfect, lightning-fast websites. Every line of
@@ -113,7 +167,8 @@ export default function Home() {
             in the dark. Let&apos;s make your digital dreams a reality.
           </p>
         </div>
-        <div className="w-full">
+
+        <div ref = {bottomImage} className="w-full">
           {theme === "dark" ? (
             <Image
               src="/images/whiteForest.svg"
@@ -134,10 +189,6 @@ export default function Home() {
             />
           )}
         </div>
-      </section>
-      <section className="w-full">
-        
-
       </section>
     </div>
   );

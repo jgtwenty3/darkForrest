@@ -60,19 +60,19 @@ export default function ContactPage() {
       <div className='flex flex-col md:flex-row md:justify-between p-5'>
         <div className='flex flex-col mb-0 md:mb-0 '>
           <h2 className='text-7xl mb-4'>Get in touch</h2>
-          <div className='text-3xl md:text-5xl'>email: <a href="mailto:justinguerrerowork@gmail.com">justinguerrerowork@gmail.com</a></div>
+          <div className='text-xl md:text-5xl'>email: <a href="mailto:justinguerrerowork@gmail.com">justinguerrerowork@gmail.com</a></div>
           <div className='md:hidden font-display text-7xl text-center mt-10 mb-10'>OR</div>
         </div>
         <div className='md:w-1/2'>
-          <h3 className='text-3xl mb-4'>Make an appointment</h3>
-          <form onSubmit={handleSubmit} className='flex flex-col space-y-4'>
+          <h3 className='text-3xl mb-4 font-display font-semibold'>Make an appointment</h3>
+          <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-bitter'>
             <input
               type='text'
               name='name'
               value={formData.name}
               onChange={handleChange}
               placeholder='Name'
-              className='border-2 border-foreground p-2'
+              className='border-2 border-foreground p-2 '
               required
             />
             <input
@@ -101,7 +101,7 @@ export default function ContactPage() {
               className='border-2 border-foreground p-2'
               required
             />
-            <button type='submit' className='bg-foreground border-2 border-foreground text-background p-2 text-3xl hover:bg-background hover:text-foreground'>SEND</button>
+            <button type='submit' className='bg-foreground border-2 border-foreground text-background p-2 text-3xl hover:bg-background hover:text-foreground font-display'>SEND</button>
           </form>
         </div>
       </div>

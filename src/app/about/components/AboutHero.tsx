@@ -28,7 +28,7 @@ const AboutHero: React.FC = () => {
   })
   return (
     <header>
-      <div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground'>
+      <div className='flex justify-end text-5xl md:text-10xl border-b-2 border-foreground'>
         {/* we want to animate on scroll for this to move black left of this from right to left */}
         <div className='flex-1'> </div>
         <h1 ref = {headerRef} className='flex flex-col border-l-2 border-l-foreground p-10 md:p-5'>

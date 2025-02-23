@@ -23,8 +23,8 @@ export default function WorkHero() {
       },{
         opacity:1,
         x:0,
-        duration:2,
-        ease:'power2.inOut'
+        duration:1.5,
+        ease:"sine.inOut"
       }
 
     )
@@ -41,7 +41,7 @@ export default function WorkHero() {
 
   return (
     <header>
-      <div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground'>
+      <div className='flex justify-end text-5xl md:text-10xl border-b-2 border-foreground'>
         <div className='flex-1'></div>
         <h1 ref = {headerRef} className='flex flex-col border-l-2 border-l-foreground p-10 md:p-5'>WORK</h1>
       </div>

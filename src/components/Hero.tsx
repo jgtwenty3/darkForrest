@@ -58,7 +58,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 flex flex-col mt-20">
         <h1 ref={smallTextRef} className="uppercase text-4xl tracking-wide font-sans -mt-20 opacity-0">Small Business Web Design</h1>
-        <h2 ref={textRef} className="text-8xl md:text-10xl font-bold mb-6">
+        <h2 ref={textRef} className="text-7xl md:text-10xl font-bold mb-6">
         {'HAND-CODED WEBSITES, SUPERIOR RESULTS'.split('').map((char, index) => (
                   <span key={index} className="char">
                     {char}
