@@ -1,5 +1,14 @@
-import React from 'react';
+"use client"
+import React, { useRef } from 'react';
 import PricingCard from './PricingCard';
+
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
+
 
 const pricingOptions = [
   {
@@ -9,10 +18,10 @@ const pricingOptions = [
       { item: '$100 fee Per Page after 5', included: true },
       { item: '+$50/mo Unlimited Edits Add-on', included: true },
       { item: '+$250 To Add A Blog', included: true },
-	  { item: '3D Animation', included: false },
+	    { item: '3D Animation', included: false },
       { item: '24/7 Support', included: false },
       { item: 'Lifetime Updates', included: false },
-	  { item: '$25/mo Hosting', included: false },
+	    { item: '$25/mo Hosting', included: false },
     ],
     price: '$2200 + $25/mo Hosting',
     buttonLabel: 'Get Started',
@@ -28,7 +37,8 @@ const pricingOptions = [
       { item: '+ $250 for Blog', included: true },
       { item: '24/7 Support', included: true },
       { item: 'Lifetime Updates', included: true },
-	  { item: '3D Animation', included: false },
+	    { item: '3D Animation', included: false },
+      
     ],
     price: '$150/month',
     buttonLabel: 'Start Now',
@@ -52,12 +62,37 @@ const pricingOptions = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
+
+
+
 export default function PricingHero() {
+  
+  const headerRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(()=>{
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      headerRef.current,
+      {
+        x:900,
+      },{
+        opacity:1,
+        x:0,
+        duration:1.2,
+        ease:'power2.inOut'
+      }
+
+    )
+  })
+  
   return (
     <header>
       <div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground'>
         <div className='flex-1'></div>
-        <h1 className='flex flex-col border-l-2 border-l-foreground p-5 md:p-0'>PRICING</h1>
+        <h1 ref = {headerRef} className='flex flex-col border-l-2 border-l-foreground p-5 md:p-5'>PRICING</h1>
       </div>
       <div className='border-b-2 border-foreground p-4 flex justify-center'>
           {/* <h2 className='text-5xl md:text-6xl mr-6' >

@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from "gsap";
 import { useTheme } from 'next-themes';
-import AWaves from './AWaves';
+import HWaves from './HWaves';
 
 export default function Hero() {
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -50,15 +50,7 @@ export default function Hero() {
     <section id="hero" className="relative flex min-h-screen bg-gray-100 dark:bg-gray-800 overflow-visible">
       {/* Background Image */}
       <picture className="absolute inset-0 z-0 border-b-2 border-foreground">
-        {/* <source media="(max-width: 600px)" srcSet="/images/forrest.svg" />
-        <source media="(min-width: 601px)" srcSet="/images/forrest.svg" />
-        <img
-          src="/images/forrest.svg"
-          alt="Hero Background"
-          className="object-cover w-full h-full"
-          loading="lazy"
-        /> */}
-        <AWaves/>
+        <HWaves/>
       </picture>
       {/* Sun and Moon Images */}
       <img ref={sunRef} src="/images/sun.svg" alt="Sun" className="absolute top-2 right-0  w-28 h-28 hidden md:block" style={{ opacity: 0, transform: 'translateY(-100%)' }} />

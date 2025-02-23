@@ -68,28 +68,28 @@ export default function Navbar() {
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         <div className='border-r-2 border-foreground py-4'>
-          <Link href="/" className="text-3xl md:text-5xl font-display mr-2">
-            DARK FOREST STUDIOS
+          <Link href="/" className="text-3xl md:text-5xl font-bitterThin mr-2">
+            dark forest.
           </Link>
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-3 items-center uppercase text-xl px-2">
-          <Link href="/" className="text-foreground dark:text-gray-300">Home</Link>
-          <Link href="/about" className="text-foreground dark:text-gray-300">About</Link>
-          <Link href="/services" className="text-foreground dark:text-gray-300">Services</Link>
-          <Link href="/work" className="text-foreground dark:text-gray-300">WORK</Link>
-          <Link href="/pricing" className="text-foreground dark:text-gray-300">PRICING</Link>
-          <Link href="/contact" className="text-foreground dark:text-gray-300">Contact</Link>
+        <div className="hidden md:flex space-x-3 items-center text-xl px-2 font-sans uppercase">
+          <Link href="/" className="text-foreground dark:text-gray-300">home</Link>
+          <Link href="/about" className="text-foreground dark:text-gray-300">about</Link>
+          <Link href="/services" className="text-foreground dark:text-gray-300">services</Link>
+          <Link href="/work" className="text-foreground dark:text-gray-300">work</Link>
+          <Link href="/pricing" className="text-foreground dark:text-gray-300">pricing</Link>
+          <Link href="/contact" className="text-foreground dark:text-gray-300">contact</Link>
 
           {/* Theme toggle button */}
-          <button onClick={handleThemeToggle} className="p-2 bg-gray-200 dark:bg-gray-800 border-2 border-foreground">
-            {theme === 'dark' ? 'RISE N SHINE' : 'LIGHTS OUT'}
+          <button onClick={handleThemeToggle} className="p-2 bg-background border-2 border-foreground ">
+            {theme === 'dark' ? 'DAY' : 'NIGHT'}
           </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-gray-600 dark:text-gray-300">
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-gray-600 dark:text-gray-300 ">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>

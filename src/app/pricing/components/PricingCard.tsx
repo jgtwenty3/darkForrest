@@ -20,7 +20,7 @@ export default function PricingCard({ title, listItems, price, buttonLabel, butt
           </li>
         ))}
       </ul>
-      <div className="text-5xl font-bold mb-4 text-center">{price}</div>
+      <div className="text-3xl font-bold mb-4 text-center">{price}</div>
       <a href={buttonLink} className="block text-center py-2 text-background uppercase bg-foreground hover:bg-background hover:text-foreground border-2 border-foreground text-2xl">
         {buttonLabel}
       </a>

@@ -3,9 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 :root {
   --background: #F8FAFC;
   --foreground: #171717;
+  --font-clash: 'Clash Display', sans-serif;
 }
 
 .dark {
@@ -16,13 +24,14 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-teco), sans-serif;
+  font-family: var(--font---font-archivo), sans-serif;
+ 
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-anton), sans-serif;
+  font-family: var(--font-clash), sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  /* letter-spacing: 0.05em; */
 }
 
 /* Optional Tailwind Base Enhancements */
@@ -137,4 +146,14 @@ html[data-theme='dark'] {
   border-radius: 50%;
   transform: translate3d(var(--x, -0.5rem) - 50%, var(--y, 50%) - 50%, 0);
   will-change: transform;
+}
+.rotated-svg {
+  fill: var(--foreground);
+  stroke: var(--foreground);
+}
+
+
+.space {
+  display: inline-block;
+  width: 0.5em; /* Adjust this width as needed */
 }

@@ -15,8 +15,10 @@ export default {
         blue: "#101827",
       },
       fontFamily: {
-        sans: ["var(--font-teko)", "sans-serif"],
-        display: ["var(--font-anton)", "sans-serif"],
+        sans: ["var(--font-archivo)", "sans-serif"],
+        display: ["var(--font-clash)", "sans-serif"],
+        bitter: ["var(--font-bitter)", "sans-serif"],
+        bitterThin: ["var(--font-bitterThin)", "sans-serif"]
       },
       fontSize: {
         '10xl': '10rem', // You can adjust the value as needed
@@ -28,3 +30,4 @@ export default {
   },
   plugins: [],
 };
+

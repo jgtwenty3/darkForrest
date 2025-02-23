@@ -8,9 +8,9 @@ interface CardProps {
 
 const OfferCard: React.FC<CardProps> = ({ icon, title, description }) => {
   return (
-    <div className="relative flex flex-col items-center text-center bg-white dark:bg-gray-800 border-2 border-black shadow-xl shadow-black p-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl w-full max-w-sm h-[300px]">
+    <div className="relative flex flex-col items-center text-center bg-background border-2 border-foreground border-black shadow-xl shadow-black p-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl w-full max-w-sm h-[300px]">
       {/* Icon positioned in the upper-left corner */}
-      <div className="absolute top-[-20px] left-[-20px] bg-gray-100 dark:bg-gray-700 p-4 rounded-full shadow-lg border-2 border-foreground shadow-black">
+      <div className="absolute top-[-20px] left-[-20px] bg-background dark:bg-foreground p-4 rounded-full shadow-lg border-2 border-foreground shadow-black">
         <img src={icon} alt={title} className="w-12 h-12" />
       </div>
 

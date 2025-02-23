@@ -1,6 +1,12 @@
 "use client"
 import AWaves from '@/components/AWaves';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -24,12 +30,31 @@ export default function ContactPage() {
     console.log('Form Data: ', formData);
   };
 
+  const headerRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(()=>{
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      headerRef.current,
+      {
+        x:900,
+      },{
+        opacity:1,
+        x:0,
+        duration:1.2,
+        ease:'power2.inOut'
+      }
+
+    )
+  })
+
   return (
     <div className='min-h-screen'>
       <header className=''>
         <div className='flex justify-end text-7xl md:text-10xl border-b-2 border-foreground'>
           <div className='relative flex-1'> <AWaves /> {/* AWaves Component */}</div>
-          <h1 className='flex flex-col border-l-2 border-l-foreground p-5 md:p-5'>CONTACT</h1>
+          <h1 ref = {headerRef} className='flex flex-col border-l-2 border-l-foreground p-5 md:p-5'>CONTACT</h1>
         </div>
       </header>
       <div className='flex flex-col md:flex-row md:justify-between p-5'>
