@@ -24,13 +24,6 @@ const bitterThin = Bitter({
   weight:"100",
 });
 
-const teko = Teko({
-  variable: "--font-teko",
-  subsets: ["latin"],
-  weight: "400",
-});
-
-
 export const metadata: Metadata = {
   title: "Dark Forest Studios",
   description: "Freelance web design inspired by the Dark Forest Theory.",
