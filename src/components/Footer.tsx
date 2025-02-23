@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { useTheme } from "next-themes";
-import Image from 'next/image';
 
 export default function Footer() {
   const { theme } = useTheme();

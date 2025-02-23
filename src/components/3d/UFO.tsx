@@ -9,9 +9,8 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-type Props = {};
 
-export default function UFOScene({}: Props) {
+export default function UFOScene() {
   const canvasRef = useRef(null);
   const ufoRef = useRef<HTMLDivElement>(null);
 
@@ -120,9 +119,9 @@ function UFOModel() {
           <primitive ref={modelRef} object={model} position={[0, 0, 0]} />
           
           {/* Point Lights Below UFO */}
-          <pointLight ref={pointLight1Ref} intensity={1} distance={10} color="white" position={[0, -2, 0]} />
-          <pointLight ref={pointLight2Ref} intensity={1} distance={10} color="white" position={[1, -2, 0]} />
-          <pointLight ref={pointLight3Ref} intensity={1} distance={10} color="white" position={[-1, -2, 0]} />
+          <pointLight ref={pointLight1Ref} intensity={3} distance={20} color="white" position={[0, -2, 0]} />
+          <pointLight ref={pointLight2Ref} intensity={3} distance={20} color="white" position={[1, -2, 0]} />
+          <pointLight ref={pointLight3Ref} intensity={3} distance={20} color="white" position={[-1, -2, 0]} />
         </>
       ) : null}
     </>
