@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Teko, Bitter, Archivo} from "next/font/google";
+import { Bitter, Archivo} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar";
 import { ThemeProvider } from "next-themes";
