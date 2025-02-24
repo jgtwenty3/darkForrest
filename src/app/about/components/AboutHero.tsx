@@ -41,7 +41,7 @@ const AboutHero: React.FC = () => {
             We make web experiences with purpose & personality.
         </h2>
 
-        <div className='flex md:flex-row'>
+        <div className='flex md:flex-col flex-row'>
           <p className='text-2xl md:w-1/2 mb-5 mt-5 p-2 md:p-0'>
               My name is Justin, I&apos;m the owner and lead developer at Dark Forest Studios.
               I&apos;m a full-stack developer and web designer with almost a decade of experience in SaSS sales. After years of working with small busineseses, I left sales to pursue programming. 

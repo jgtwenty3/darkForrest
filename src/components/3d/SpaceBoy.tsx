@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera, useGLTF } from "@react-three/drei"; // For GLTF model loading
+import { Canvas } from "@react-three/fiber";
+import { PerspectiveCamera, useGLTF } from "@react-three/drei"; // For GLTF model loading
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -12,32 +12,70 @@ gsap.registerPlugin(ScrollTrigger);
 export default function SpaceBoyScene() {
   const canvasRef = useRef(null);
   const spaceBoyRef = useRef(null);
-  
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Set mobile screen width threshold
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile); // Update on resize
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
-    <div ref = {spaceBoyRef} style={{ width: "100vw", height: "100vh" }}>
-      <Canvas style={{ width: "100%", height: "100vh" }} ref ={canvasRef}>
+    <div ref={spaceBoyRef} style={{ width: "100vw", height: "100vh" }}>
+      <Canvas style={{ width: "100%", height: "100vh" }} ref={canvasRef}>
         <PerspectiveCamera makeDefault position={[0, 2, 10]} fov={75} />
-        <SpaceBoyModel />
+        <SpaceBoyModel isMobile={isMobile} />
       </Canvas>
-          </div>
+    </div>
   );
 }
 
-function SpaceBoyModel() {
-  const { nodes, materials } = useGLTF('/models/space_boi/scene.gltf'); // Load GLTF model
+function SpaceBoyModel({ isMobile }: { isMobile: boolean }) {
+  const { nodes, materials } = useGLTF('/models/space_boi/scene.gltf');
   const modelRef = useRef<THREE.Group | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (modelRef.current){
-    gsap.to(modelRef.current.rotation, {
-      duration: 30,
-      y: "+=6.2832", // 2π to rotate 360 degrees
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-    });
-  }
-  }, [nodes]);
+    const handleMouseMove = (e: MouseEvent) => {
+      const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+      const mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+      setMousePos({ x: mouseX, y: mouseY });
+    };
+
+    if (!isMobile) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [isMobile]);
+
+  // Rotation animation
+  useEffect(() => {
+    if (modelRef.current) {
+      if (isMobile) {
+        gsap.to(modelRef.current.rotation, {
+          duration: 20,
+          y: "+=6.28", // 360° rotation (2π radians)
+          repeat: -1,
+          ease: "none",
+        });
+      } else {
+        gsap.to(modelRef.current.rotation, {
+          duration: 0.5,
+          x: mousePos.y * Math.PI / 16,
+          y: mousePos.x * Math.PI,
+          ease: "power1.out",
+        });
+      }
+    }
+  }, [mousePos, isMobile]);
 
   return (
     <group dispose={null} ref ={modelRef}>
@@ -224,6 +262,9 @@ function SpaceBoyModel() {
     </group>
   )
 }
+
+
+
 
 useGLTF.preload('/models/space_boi.scene.gltf')
 

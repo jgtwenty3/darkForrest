@@ -7,10 +7,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import UFOScene from "@/components/3d/UFO";
-import OfferCard from "@/components/OfferCards";
 import SpaceBoyScene from "@/components/3d/SpaceBoy";
+import ProductListCard from "@/components/ProductListCard";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const wordList = [
+  "where do i fit in?",
+  "how do i stand out?",
+  "the internet is huge.",
+  "there's SO many websites."
+];
 
 export default function Home() {
   const { theme } = useTheme();
@@ -20,7 +27,8 @@ export default function Home() {
   const secondAnim = useRef<HTMLDivElement>(null);
   const bottomImage = useRef<HTMLDivElement>(null);
   const ufoRef = useRef<HTMLDivElement>(null);
-  const spaceContainer = useRef<HTMLDivElement>(null)
+  const spaceContainer = useRef<HTMLDivElement>(null);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
     setMounted(true);
@@ -111,9 +119,14 @@ export default function Home() {
           });
         },
       });
-
-
     }
+
+    // Interval to cycle through words in wordList
+    const intervalId = setInterval(() => {
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % wordList.length);
+    }, 4000); // Change the word every 4 seconds
+
+    return () => clearInterval(intervalId); // Clear the interval when the component is unmounted
   }, [mounted]);
 
   // Render a placeholder until the theme is determined
@@ -165,7 +178,7 @@ export default function Home() {
           <p ref={secondAnim} className="text-2xl md:w-1/2 mt-10">
             In the vast digital universe, visibility is everything—but only to the right audience.
             The internet is a place of hidden potential, where only those who move strategically thrive. 
-            At dark forest, we craft websites that stand out while staying secure, elegant, and optimized for survival in an ever-changing digital landscape.
+            At <span className="font-bold">dark forest</span>, we craft websites that stand out while staying secure, elegant, and optimized for survival in an ever-changing digital landscape.
           </p>
         </div>
 
@@ -191,8 +204,29 @@ export default function Home() {
           )}
         </div>
       </section>
-      <div ref ={spaceContainer} style={{ width: "100%", height: "100vh" }} className="bg-black">
-        <SpaceBoyScene/>
+
+      <div ref={spaceContainer} style={{ width: "100%", height: "100vh" }} className="bg-black relative">
+        <SpaceBoyScene />
+        {/* Display the wordList in the SpaceBoy scene */}
+        <div className="absolute bottom-96 md:top-84 md:left-32 z-10 font-bitterThin text-white text-2xl md:text-3xl">
+          {wordList[currentWordIndex]}
+        </div>
+      </div>
+      <div className='flex justify-end text-5xl md:text-10xl border-b-2 border-foreground'>
+        {/* we want to animate on scroll for this to move black left of this from right to left */}
+        <div className='flex-1'> </div>
+        <h2 ref = {headerRef} className='flex flex-col border-l-2 border-l-foreground p-10 md:p-5'>
+          PRODUCT
+        </h2>
+      </div>
+      <div>
+        <ProductListCard title = "MOBILE FIRST" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
+        <ProductListCard title = "RESPONSIVE" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
+        <ProductListCard title = "FAST" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
+        <ProductListCard title = "SEO" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
+        <ProductListCard title = "SOFTWARE DEVELOPMENT" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
+        <ProductListCard title = "MOBILE DEVELOPMENT" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
+       
       </div>
     </div>
   );
