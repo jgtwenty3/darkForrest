@@ -75,7 +75,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-3 items-center text-xl px-2 font-sans uppercase">
+        <div className="hidden md:flex space-x-3 items-center text-sm px-2 font-sans uppercase">
           <Link href="/" className="text-foreground dark:text-gray-300">home</Link>
           <Link href="/about" className="text-foreground dark:text-gray-300">about</Link>
           <Link href="/services" className="text-foreground dark:text-gray-300">services</Link>

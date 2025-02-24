@@ -9,7 +9,6 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-
 export default function UFOScene() {
   const canvasRef = useRef(null);
   const ufoRef = useRef<HTMLDivElement>(null);
@@ -30,8 +29,10 @@ export default function UFOScene() {
   return (
     <div ref={ufoRef} style={{ width: "100vw", height: "100vh" }}>
       <Canvas ref={canvasRef}>
-        <ambientLight intensity={2} />
-        <directionalLight position={[5, 5, 5]} />
+        <ambientLight intensity={1.5} />
+        <directionalLight position={[5, 5, 5]} intensity={2} />
+        <spotLight position={[10, 10, 10]} intensity={2.5} angle={0.3} penumbra={1} />
+        <spotLight position={[-10, -10, -10]} intensity={1.5} angle={0.3} penumbra={1} />
         <UFOModel />
       </Canvas>
     </div>
@@ -51,14 +52,14 @@ function UFOModel() {
     const textureLoader = new THREE.TextureLoader();
 
     const baseColorMap = textureLoader.load(
-      "/models/ufo/texture/material_baseColor.jpeg")
+      "/models/ufo/textures/material_baseColor.jpeg")
     
     const normalMap = textureLoader.load(
-      "/models/ufo/texture/material_normal.png",
+      "/models/ufo/textures/material_normal.png",
      )
 
     const metalRoughnessMap = textureLoader.load(
-      "/models/ufo/texture/material_metallicRoughness.png")
+      "/models/ufo/textures/material_metallicRoughness.png")
   
 
     loader.load("/models/ufo/scene.gltf", (gltf) => {
@@ -88,28 +89,6 @@ function UFOModel() {
       modelRef.current.rotation.y += 0.02; // Spin UFO
     }
 
-    // Optional: Make lights move with the UFO
-    if (pointLight1Ref.current && modelRef.current) {
-      pointLight1Ref.current.position.set(
-        modelRef.current.position.x - 1, // Offset from UFO's position
-        modelRef.current.position.y - 2, // Below the UFO
-        modelRef.current.position.z - 1
-      );
-    }
-    if (pointLight2Ref.current && modelRef.current) {
-      pointLight2Ref.current.position.set(
-        modelRef.current.position.x + 1,
-        modelRef.current.position.y - 2,
-        modelRef.current.position.z - 1
-      );
-    }
-    if (pointLight3Ref.current && modelRef.current) {
-      pointLight3Ref.current.position.set(
-        modelRef.current.position.x,
-        modelRef.current.position.y - 2,
-        modelRef.current.position.z + 1
-      );
-    }
   });
 
   return (
@@ -119,12 +98,14 @@ function UFOModel() {
           <primitive ref={modelRef} object={model} position={[0, 0, 0]} />
           
           {/* Point Lights Below UFO */}
-          <pointLight ref={pointLight1Ref} intensity={3} distance={20} color="white" position={[0, -2, 0]} />
-          <pointLight ref={pointLight2Ref} intensity={3} distance={20} color="white" position={[1, -2, 0]} />
-          <pointLight ref={pointLight3Ref} intensity={3} distance={20} color="white" position={[-1, -2, 0]} />
+          <pointLight ref={pointLight1Ref} intensity={10} distance={20} color="white" position={[0, -2, 0]} />
+          <pointLight ref={pointLight2Ref} intensity={10} distance={20} color="white" position={[1, -2, 0]} />
+          <pointLight ref={pointLight3Ref} intensity={10} distance={20} color="white" position={[-1, -2, 0]} />
+          <pointLight ref={pointLight3Ref} intensity={10} distance={20} color="white" position={[-1, 2, 0]} />
+          <pointLight ref={pointLight3Ref} intensity={10} distance={20} color="white" position={[-1, 2, 0]} />
+          <pointLight ref={pointLight3Ref} intensity={10} distance={20} color="white" position={[-1, 2, 0]} />
         </>
       ) : null}
     </>
   );
 }
-

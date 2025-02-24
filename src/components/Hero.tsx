@@ -76,7 +76,7 @@ export default function Hero() {
               if (el) buttonRefs.current[0] = el;
             }}
             href="/contact"
-            className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover:border-2 hover:border-black font-display border-2"
+            className="px-6 py-3 md:text-3xl text-sm bg-black hover:bg-white text-white hover:text-black  hover:border-2 hover:border-black font-display border-2"
           >
             GET STARTED
           </a>
@@ -85,7 +85,7 @@ export default function Hero() {
               if (el) buttonRefs.current[1] = el;
             }}
             href="/about"
-            className="px-6 py-3 md:text-3xl text-xl bg-black hover:bg-white text-white hover:text-black  hover-border-2 hover-border-black font-display border-2"
+            className="px-6 py-3 md:text-3xl text-sm bg-black hover:bg-white text-white hover:text-black  hover-border-2 hover-border-black font-display border-2"
           >
             {/* <Image src="/images/play-icon.svg" alt="Play" width={20} height={20} /> */}
             LEARN MORE

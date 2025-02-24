@@ -6,11 +6,11 @@ import React from 'react'
 export default function Testimonials() {
   return (
 	<div className='pt-10'>
-		<div className='flex justify-end'>
-			<h5 className='text-9xl mb-10'>WORD OF <br/>MOUTH</h5>
+		<div className='flex md:justify-end'>
+			<h5 className='text-7xl md:text-9xl mb-10'>WORD OF <br/>MOUTH</h5>
 
 		</div>
-		<div className='flex md:flex-row flex-col justify-around items-center md:space-x-6 p-10'>
+		<div className='flex md:flex-row flex-col justify-around items-center md:space-x-6 p-5 md:p-10'>
 
 			<div className='flex flex-col mb-10'>
 				
@@ -36,7 +36,7 @@ export default function Testimonials() {
 
 			</div> */}
 			<Link href = "/work">
-			<button className=" mt-10 px-12 py-3 text-2xl bg-black hover:bg-background dark:hover:bg-foreground dark:hover:text-background text-background dark:text-foreground hover:text-black hover:text-foreground border-2 border-foreground hover:border-black font-display sm:w-auto">
+			<button className=" mt-10 px-2 py-3 text-2xl bg-black hover:bg-background dark:hover:bg-foreground dark:hover:text-background text-background dark:text-foreground hover:text-black hover:text-foreground border-2 border-foreground hover:border-black font-display sm:w-auto">
 				OUR WORK
          	</button>
 

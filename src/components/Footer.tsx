@@ -33,10 +33,8 @@ export default function Footer() {
           CALL US
         </button> */}
       </div>
-      <div className='hidden md:block relative z-10'>
-        {/* Additional content if needed */}
-      </div>
-      <div className='flex flex-col relative z-10 border-2 border-foreground bg-background p-2 md:p-4'>
+    
+      <div className='mb-6 md:mb-0 relative z-10 border-2 border-foreground bg-background p-2 md:p-4'>
         <h6 className='text-sm mb-2 font-bitter lowercase'>
           DROP A LINE
         </h6>
