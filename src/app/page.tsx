@@ -8,15 +8,17 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import UFOScene from "@/components/3d/UFO";
 import SpaceBoyScene from "@/components/3d/SpaceBoy";
-import ProductListCard from "@/components/ProductListCard";
+import PlanCard from "@/components/PlanCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const wordList = [
-  "where do i fit in?",
-  "how do i stand out?",
+ 
   "the internet is huge.",
-  "there's SO many websites."
+  "there's so many websites.",
+  "they all look the same.",
+  "where do you fit in?",
+  "how do you stand out?",
 ];
 
 export default function Home() {
@@ -105,7 +107,7 @@ export default function Home() {
       // New ScrollTrigger for flying away at the bottom
       ScrollTrigger.create({
         trigger: bottomImage.current,
-        start: "top 50%",
+        start: "top 20%",
         end: "bottom 0%",
         toggleActions:"play none none reverse",
         onEnter: () => {
@@ -133,7 +135,7 @@ export default function Home() {
   if (!mounted) return <div className="dark:bg-black"></div>;
 
   return (
-    <div className="dark:bg-black">
+    <main className="dark:bg-black">
       <Hero />
       <section ref={backgroundRef} className="flex flex-col w-full relative">
         {/* UFO Background Animation */}
@@ -175,10 +177,12 @@ export default function Home() {
               </span>
             ))}
           </div>
-          <p ref={secondAnim} className="text-2xl md:w-1/2 mt-10">
-            In the vast digital universe, visibility is everything—but only to the right audience.
-            The internet is a place of hidden potential, where only those who move strategically thrive. 
-            At <span className="font-bold">dark forest</span>, we craft websites that stand out while staying secure, elegant, and optimized for survival in an ever-changing digital landscape.
+          <p ref={secondAnim} className="text-2xl md:w-1/2 mt-10 ml-1 md:-mb-32 ">
+            In the fast-moving digital world, a website isn't just a presence—it's a strategy.
+            At <span className="font-bold">dark forest</span>, we build high-performance, strategically designed websites that help small businesses stand out—and scale.
+            Every line of code is handcrafted for speed, security, and search visibility, so your brand gets seen by the right people at the right time.
+            We don't just launch sites—we manage, optimize, and refine them, making sure you're always ahead of the curve. 
+            No fluff, no guesswork—just smart, effective web design that drives real results. 
           </p>
         </div>
 
@@ -207,27 +211,53 @@ export default function Home() {
 
       <div ref={spaceContainer} style={{ width: "100%", height: "100vh" }} className="bg-black relative">
         <SpaceBoyScene />
+        
         {/* Display the wordList in the SpaceBoy scene */}
         <div className="absolute bottom-96 md:top-84 md:left-32 z-10 font-bitterThin text-white text-2xl md:text-3xl">
           {wordList[currentWordIndex]}
         </div>
+        <div className="absolute bottom-0 md:bottom-0 md:left-32 z-10 font-bitterThin text-gray-800 text-xs bg-opacity-0">
+          This work is based on "space boi" by silvercrow101 licensed under CC-BY-NC-4.0
+        </div>
       </div>
-      <div className='flex justify-end text-5xl md:text-10xl border-b-2 border-foreground'>
-        {/* we want to animate on scroll for this to move black left of this from right to left */}
-        <div className='flex-1'> </div>
-        <h2 ref = {headerRef} className='flex flex-col border-l-2 border-l-foreground p-10 md:p-5'>
-          PRODUCT
-        </h2>
-      </div>
-      <div>
-        <ProductListCard title = "MOBILE FIRST" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
-        <ProductListCard title = "RESPONSIVE" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
-        <ProductListCard title = "FAST" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
-        <ProductListCard title = "SEO" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
-        <ProductListCard title = "SOFTWARE DEVELOPMENT" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
-        <ProductListCard title = "MOBILE DEVELOPMENT" description="People are on their phones. Make sure your site looks good when it's in people's hands."/>
-       
-      </div>
-    </div>
+      
+      <section>
+        <div className='flex justify-end text-5xl md:text-10xl border-b-2 border-foreground'>
+          <div className='flex-1'> </div>
+          <h2 ref = {headerRef} className='flex flex-col border-l-2 border-l-foreground p-10 md:p-5 md:text-9xl text-4xl'>
+            THE PLAN
+          </h2>
+        </div>
+        <div className="">
+          <PlanCard 
+            title="Custom Design" 
+            description="We create custom coded sites that fit your brand. Templates are meant to be one size fits most, but are you really a 'template' person?" 
+          />
+
+          <PlanCard 
+            title="Mobile First" 
+            description="We prioritize mobile-friendly design, ensuring your website looks and functions flawlessly on all devices. Because in today's world, most users experience your site on their phones first." 
+          />
+
+          <PlanCard 
+            title="Responsive" 
+            description="A seamless experience across all screen sizes. Whether it's a phone, tablet, or desktop, your site will adapt beautifully to provide the best user experience." 
+          />
+
+          <PlanCard 
+            title="Speed" 
+            description="Templates are meant to fit a wide use case. That means bloated code. Bloated code means slow sites. Slow sites lose visitors. We optimize every aspect of your site to ensure lightning-fast load times, keeping users engaged and improving your search rankings." 
+          />
+          <PlanCard 
+            title="SEO-Friendly" 
+            description="Great design isn't just about looks—it's about visibility. We build websites with clean code, fast performance, and SEO best practices, helping your site rank higher and attract more visitors." 
+          />
+
+        </div>
+          
+      </section>
+      
+
+    </main>
   );
 }

@@ -12,6 +12,10 @@ gsap.registerPlugin(ScrollTrigger);
 export default function SpaceBoyScene() {
   const canvasRef = useRef(null);
   const spaceBoyRef = useRef(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  const cameraRef2 = useRef<THREE.PerspectiveCamera | null>(null);
+  const cameraRef3 = useRef<THREE.PerspectiveCamera | null>(null);
+  
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -25,10 +29,14 @@ export default function SpaceBoyScene() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+
   return (
     <div ref={spaceBoyRef} style={{ width: "100vw", height: "100vh" }}>
       <Canvas style={{ width: "100%", height: "100vh" }} ref={canvasRef}>
-        <PerspectiveCamera makeDefault position={[0, 2, 10]} fov={75} />
+        <PerspectiveCamera ref = {cameraRef} makeDefault position={[0, 2, 10]} fov={75} />
+        <PerspectiveCamera ref = {cameraRef2}  position={[0, 2, 4]} fov={75} />
+        <PerspectiveCamera ref = {cameraRef3}  position={[0, 2, 10]} fov={75} />
+        
         <SpaceBoyModel isMobile={isMobile} />
       </Canvas>
     </div>
@@ -266,6 +274,6 @@ function SpaceBoyModel({ isMobile }: { isMobile: boolean }) {
 
 
 
-useGLTF.preload('/models/space_boi.scene.gltf')
+useGLTF.preload('/models/space_boi/scene.gltf')
 
 	

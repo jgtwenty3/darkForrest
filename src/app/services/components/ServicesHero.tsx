@@ -47,6 +47,11 @@ export default function ServicesHero() {
 				<h3 className='mb-5 md:mb-0 hover:bg-foreground hover:text-background'>SOFTWARE DEVELOPMENT</h3>
 
 			</a>
+      <a href='#software'>
+				<h3 className='mb-5 md:mb-0 hover:bg-foreground hover:text-background'>MOBILE APP DEVELOPMENT</h3>
+
+			</a>
+      
 			<a href = "#seo">
 				<h4 className='mb-[30vh] hover:bg-foreground hover:text-background'>SEO</h4>
 			</a>
